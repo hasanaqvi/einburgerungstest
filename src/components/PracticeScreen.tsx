@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { type Question, topicLabel } from '../data/questions';
+import { contexts } from '../data/contexts';
 import type { Progress } from '../lib/progress';
 
 interface PracticeScreenProps {
@@ -161,22 +162,30 @@ export function PracticeScreen({
 
         {/* Feedback */}
         {answered && (
-          <div
-            className={`mt-5 p-4 rounded-xl text-base ${
-              isCorrect
-                ? 'bg-green-50 dark:bg-green-900/30 text-green-800 dark:text-green-300 border border-green-200 dark:border-green-800'
-                : 'bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-300 border border-red-200 dark:border-red-800'
-            }`}
-          >
-            {isCorrect ? (
-              <span className="font-semibold">Richtig!</span>
-            ) : (
-              <span>
-                <span className="font-semibold">Falsch</span> — correct answer:{' '}
-                <span className="font-medium">{question.opts[question.ans].de}</span>
-              </span>
+          <>
+            <div
+              className={`mt-5 p-4 rounded-xl text-base ${
+                isCorrect
+                  ? 'bg-green-50 dark:bg-green-900/30 text-green-800 dark:text-green-300 border border-green-200 dark:border-green-800'
+                  : 'bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-300 border border-red-200 dark:border-red-800'
+              }`}
+            >
+              {isCorrect ? (
+                <span className="font-semibold">Richtig!</span>
+              ) : (
+                <span>
+                  <span className="font-semibold">Falsch</span> — correct answer:{' '}
+                  <span className="font-medium">{question.opts[question.ans].de}</span>
+                </span>
+              )}
+            </div>
+            {contexts[question.id] && (
+              <div className="mt-3 p-4 rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-900/40">
+                <p className="text-xs font-semibold text-blue-500 dark:text-blue-400 uppercase tracking-wide mb-1">Context</p>
+                <p className="text-sm text-blue-900 dark:text-blue-200 leading-relaxed">{contexts[question.id]}</p>
+              </div>
             )}
-          </div>
+          </>
         )}
       </div>
 
