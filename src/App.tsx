@@ -173,7 +173,6 @@ export default function App() {
           questions={sessionQuestions}
           initialIndex={sessionInitialIndex}
           progress={progress}
-          settings={settings}
           onAnswer={handleAnswer}
           onComplete={handlePracticeComplete}
           onPause={handlePracticePause}

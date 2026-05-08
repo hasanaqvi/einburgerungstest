@@ -1,13 +1,11 @@
 import { useState } from 'react';
 import { type Question, topicLabel } from '../data/questions';
 import type { Progress } from '../lib/progress';
-import type { AppSettings } from '../App';
 
 interface PracticeScreenProps {
   questions: Question[];
   initialIndex?: number;
   progress: Progress;
-  settings: AppSettings;
   onAnswer: (questionId: number, isCorrect: boolean) => void;
   onComplete: (answers: (number | null)[]) => void;
   onPause: (currentIndex: number) => void;
@@ -24,7 +22,6 @@ export function PracticeScreen({
   questions,
   initialIndex = 0,
   progress,
-  settings,
   onAnswer,
   onComplete,
   onPause,
@@ -33,8 +30,8 @@ export function PracticeScreen({
   const [answers, setAnswers] = useState<(number | null)[]>(() =>
     new Array(questions.length).fill(null)
   );
-  const [showQTranslation, setShowQTranslation] = useState(settings.showQuestionTranslation);
-  const [showATranslation, setShowATranslation] = useState(settings.showAnswerTranslation);
+  const [showQTranslation, setShowQTranslation] = useState(false);
+  const [showATranslation, setShowATranslation] = useState(false);
 
   const question = questions[currentIndex];
   const selected = answers[currentIndex];
@@ -58,6 +55,8 @@ export function PracticeScreen({
       onComplete(answers);
     } else {
       setCurrentIndex(i => i + 1);
+      setShowQTranslation(false);
+      setShowATranslation(false);
     }
   }
 
