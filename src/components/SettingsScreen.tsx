@@ -24,15 +24,15 @@ function Toggle({
   return (
     <button
       onClick={onToggle}
-      className="w-full flex items-center justify-between py-4 border-b border-gray-100 text-left"
+      className="w-full flex items-center justify-between py-4 border-b border-gray-100 dark:border-gray-700 text-left"
     >
       <div>
-        <div className="text-sm font-medium text-gray-800">{label}</div>
-        <div className="text-xs text-gray-400 mt-0.5">{description}</div>
+        <div className="text-sm font-medium text-gray-800 dark:text-gray-100">{label}</div>
+        <div className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">{description}</div>
       </div>
       <div
         className={`relative w-11 h-6 rounded-full transition-colors shrink-0 ml-4 ${
-          enabled ? 'bg-blue-600' : 'bg-gray-300'
+          enabled ? 'bg-blue-600' : 'bg-gray-300 dark:bg-gray-600'
         }`}
       >
         <div
@@ -78,22 +78,28 @@ export function SettingsScreen({
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       <div className="max-w-2xl mx-auto px-4 pt-4 pb-8">
         {/* Header */}
         <div className="flex items-center gap-3 mb-6">
-          <button onClick={onHome} className="text-sm text-gray-400 hover:text-gray-600 font-medium">
+          <button onClick={onHome} className="text-sm text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 font-medium">
             ← Home
           </button>
-          <h1 className="text-lg font-bold text-gray-900">Settings</h1>
+          <h1 className="text-lg font-bold text-gray-900 dark:text-white">Settings</h1>
         </div>
 
         {/* Display section */}
         <div className="mb-6">
-          <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">
+          <h2 className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-2">
             Display
           </h2>
-          <div className="bg-white border border-gray-200 rounded-2xl px-4">
+          <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl px-4">
+            <Toggle
+              enabled={settings.darkMode}
+              onToggle={() => onUpdateSettings({ darkMode: !settings.darkMode })}
+              label="Dark mode"
+              description="Switch to a dark colour scheme"
+            />
             <Toggle
               enabled={settings.showQuestionTranslation}
               onToggle={() =>
@@ -115,20 +121,20 @@ export function SettingsScreen({
 
         {/* Data section */}
         <div className="mb-6">
-          <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">
+          <h2 className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-2">
             Progress data
           </h2>
           <div className="space-y-2">
             <button
               onClick={onExportProgress}
-              className="w-full bg-gray-100 text-gray-700 rounded-2xl py-3.5 font-medium hover:bg-gray-200 transition-colors text-sm"
+              className="w-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-2xl py-3.5 font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-sm border border-transparent dark:border-gray-700"
             >
               Export progress (JSON)
             </button>
 
             <button
               onClick={() => fileInputRef.current?.click()}
-              className="w-full bg-gray-100 text-gray-700 rounded-2xl py-3.5 font-medium hover:bg-gray-200 transition-colors text-sm"
+              className="w-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-2xl py-3.5 font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-sm border border-transparent dark:border-gray-700"
             >
               Import progress
             </button>
@@ -141,7 +147,7 @@ export function SettingsScreen({
             />
 
             {importError && (
-              <p className="text-xs text-red-500 px-1">{importError}</p>
+              <p className="text-xs text-red-500 dark:text-red-400 px-1">{importError}</p>
             )}
           </div>
         </div>
@@ -152,9 +158,9 @@ export function SettingsScreen({
             Danger zone
           </h2>
           {showResetConfirm ? (
-            <div className="bg-red-50 border border-red-200 rounded-2xl p-4">
-              <p className="text-sm text-red-700 font-medium mb-1">Reset all progress?</p>
-              <p className="text-xs text-red-500 mb-4">
+            <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-900/50 rounded-2xl p-4">
+              <p className="text-sm text-red-700 dark:text-red-300 font-medium mb-1">Reset all progress?</p>
+              <p className="text-xs text-red-500 dark:text-red-400 mb-4">
                 This will permanently delete all your attempts, confidence scores, and mastery data. This cannot be undone.
               </p>
               <div className="flex gap-2">
@@ -169,7 +175,7 @@ export function SettingsScreen({
                 </button>
                 <button
                   onClick={() => setShowResetConfirm(false)}
-                  className="flex-1 bg-gray-100 text-gray-700 rounded-xl py-2.5 text-sm font-medium hover:bg-gray-200 transition-colors"
+                  className="flex-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-xl py-2.5 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
                 >
                   Cancel
                 </button>
@@ -178,7 +184,7 @@ export function SettingsScreen({
           ) : (
             <button
               onClick={() => setShowResetConfirm(true)}
-              className="w-full border-2 border-red-200 text-red-600 rounded-2xl py-3.5 font-medium hover:bg-red-50 transition-colors text-sm"
+              className="w-full border-2 border-red-200 dark:border-red-900/50 text-red-600 dark:text-red-400 rounded-2xl py-3.5 font-medium hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors text-sm"
             >
               Reset all progress
             </button>

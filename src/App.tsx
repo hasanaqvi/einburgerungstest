@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import type { Question } from './data/questions';
 import { type Progress, loadProgress, updateQuestion, resetProgress, exportProgress } from './lib/progress';
 import { buildQueue, buildMockExam } from './lib/queue';
@@ -12,6 +12,7 @@ import { SettingsScreen } from './components/SettingsScreen';
 export interface AppSettings {
   showQuestionTranslation: boolean;
   showAnswerTranslation: boolean;
+  darkMode: boolean;
 }
 
 export interface SessionResult {
@@ -27,11 +28,14 @@ const SETTINGS_KEY = 'einbuergerungstest_settings';
 function loadSettings(): AppSettings {
   try {
     const raw = localStorage.getItem(SETTINGS_KEY);
-    return raw
+    const s = raw
       ? (JSON.parse(raw) as AppSettings)
-      : { showQuestionTranslation: false, showAnswerTranslation: true };
+      : { showQuestionTranslation: false, showAnswerTranslation: true, darkMode: false };
+    // Apply immediately to avoid flash of wrong theme
+    document.documentElement.classList.toggle('dark', !!s.darkMode);
+    return s;
   } catch {
-    return { showQuestionTranslation: false, showAnswerTranslation: true };
+    return { showQuestionTranslation: false, showAnswerTranslation: true, darkMode: false };
   }
 }
 
@@ -47,6 +51,10 @@ export default function App() {
   const [progress, setProgress] = useState<Progress>(loadProgress);
 
   const refreshProgress = useCallback(() => setProgress(loadProgress()), []);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', settings.darkMode);
+  }, [settings.darkMode]);
 
   function handleAnswer(questionId: number, isCorrect: boolean) {
     updateQuestion(questionId, isCorrect);
