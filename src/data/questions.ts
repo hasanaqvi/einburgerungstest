@@ -3954,7 +3954,7 @@ export const questions: Question[] = [
     { de: "Pankow", en: "Pankow" },
     { de: "Mecklenburgische Seenplatte", en: "Mecklenburgische Seenplatte" },
   ],
-  ans: 0,
+  ans: 2,
   berlin: true,
 },
   {
@@ -3968,7 +3968,7 @@ export const questions: Question[] = [
     { de: "5", en: "5" },
     { de: "6", en: "6" },
   ],
-  ans: 1,
+  ans: 2,
   berlin: true,
 },
   {
@@ -3982,7 +3982,7 @@ export const questions: Question[] = [
     { de: "18", en: "18" },
     { de: "20", en: "20" },
   ],
-  ans: 0,
+  ans: 1,
   berlin: true,
 },
   {
@@ -4010,7 +4010,7 @@ export const questions: Question[] = [
     { de: "bei der Verbraucherzentrale", en: "at the consumer advice centre" },
     { de: "bei der Landeszentrale für politische Bildung", en: "at the State Centre for Political Education" },
   ],
-  ans: 1,
+  ans: 3,
   berlin: true,
 },
   {
@@ -4024,7 +4024,7 @@ export const questions: Question[] = [
     { de: "Brandenburg", en: "Brandenburg" },
     { de: "Hessen", en: "Hesse" },
   ],
-  ans: 2,
+  ans: 0,
   berlin: true,
 },
   {
@@ -4052,7 +4052,7 @@ export const questions: Question[] = [
     { de: "Präsidentin/Präsident des Senates", en: "President of the Senate" },
     { de: "Regierende Bürgermeisterin/Regierender Bürgermeister", en: "Governing Mayor (Regierender Bürgermeister/in)" },
   ],
-  ans: 2,
+  ans: 3,
   berlin: true,
 },
   {
@@ -4066,7 +4066,7 @@ export const questions: Question[] = [
     { de: "Senatorin/Senator für Außenbeziehungen", en: "Senator for Foreign Relations" },
     { de: "Justizsenatorin/Justizsenator", en: "Senator for Justice" },
   ],
-  ans: 1,
+  ans: 2,
   berlin: true,
 },
 ];
