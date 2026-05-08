@@ -3,7 +3,9 @@ import { type Progress, isMastered } from '../lib/progress';
 
 interface HomeScreenProps {
   progress: Progress;
+  savedSession: { index: number; total: number } | null;
   onPractice: () => void;
+  onPracticeByTopic: (topic: Topic) => void;
   onMockExam: () => void;
   onBrowse: () => void;
   onSettings: () => void;
@@ -21,7 +23,17 @@ function topicColor(t: Topic): string {
   return map[String(t)] ?? 'bg-gray-400';
 }
 
-export function HomeScreen({ progress, onPractice, onMockExam, onBrowse, onSettings }: HomeScreenProps) {
+function topicChipColor(t: Topic): string {
+  const map: Record<string, string> = {
+    '0': 'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/40',
+    '1': 'bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 hover:bg-purple-100 dark:hover:bg-purple-900/40',
+    '2': 'bg-teal-50 dark:bg-teal-900/20 text-teal-700 dark:text-teal-300 hover:bg-teal-100 dark:hover:bg-teal-900/40',
+    'berlin': 'bg-orange-50 dark:bg-orange-900/20 text-orange-700 dark:text-orange-300 hover:bg-orange-100 dark:hover:bg-orange-900/40',
+  };
+  return map[String(t)] ?? 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300';
+}
+
+export function HomeScreen({ progress, savedSession, onPractice, onPracticeByTopic, onMockExam, onBrowse, onSettings }: HomeScreenProps) {
   const total = questions.length;
 
   const mastered = questions.filter(q => {
@@ -108,8 +120,28 @@ export function HomeScreen({ progress, onPractice, onMockExam, onBrowse, onSetti
             onClick={onPractice}
             className="w-full bg-blue-600 text-white rounded-2xl py-4 text-lg font-semibold hover:bg-blue-700 active:bg-blue-800 transition-colors"
           >
-            Practice
+            {savedSession
+              ? `Continue (${savedSession.index + 1} / ${savedSession.total})`
+              : 'Practice all questions'}
           </button>
+
+          {/* Topic chips */}
+          <div className="grid grid-cols-2 gap-2">
+            {TOPICS.map(t => {
+              const count = questions.filter(q => q.topic === t).length;
+              return (
+                <button
+                  key={String(t)}
+                  onClick={() => onPracticeByTopic(t)}
+                  className={`rounded-xl py-2.5 px-3 text-sm font-medium transition-colors text-left ${topicChipColor(t)}`}
+                >
+                  <span>{topicLabel(t)}</span>
+                  <span className="ml-1 opacity-60 text-xs">({count})</span>
+                </button>
+              );
+            })}
+          </div>
+
           <button
             onClick={onMockExam}
             className="w-full border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 rounded-2xl py-4 text-lg font-semibold hover:bg-blue-50 dark:hover:bg-blue-900/20 active:bg-blue-100 dark:active:bg-blue-900/30 transition-colors bg-white dark:bg-transparent"

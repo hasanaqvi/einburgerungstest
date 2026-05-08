@@ -56,3 +56,27 @@ export function resetProgress(): void {
 export function exportProgress(): string {
   return JSON.stringify(loadProgress(), null, 2);
 }
+
+const SESSION_KEY = 'einbuergerungstest_session';
+
+export interface Session {
+  queueIds: number[];
+  index: number;
+}
+
+export function saveSession(queueIds: number[], index: number): void {
+  localStorage.setItem(SESSION_KEY, JSON.stringify({ queueIds, index }));
+}
+
+export function loadSession(): Session | null {
+  try {
+    const raw = localStorage.getItem(SESSION_KEY);
+    return raw ? (JSON.parse(raw) as Session) : null;
+  } catch {
+    return null;
+  }
+}
+
+export function clearSession(): void {
+  localStorage.removeItem(SESSION_KEY);
+}

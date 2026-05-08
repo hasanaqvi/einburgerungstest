@@ -5,11 +5,12 @@ import type { AppSettings } from '../App';
 
 interface PracticeScreenProps {
   questions: Question[];
+  initialIndex?: number;
   progress: Progress;
   settings: AppSettings;
   onAnswer: (questionId: number, isCorrect: boolean) => void;
   onComplete: (answers: (number | null)[]) => void;
-  onHome: () => void;
+  onPause: (currentIndex: number) => void;
 }
 
 function confidenceDot(confidence: number, hasSeen: boolean): string {
@@ -21,13 +22,14 @@ function confidenceDot(confidence: number, hasSeen: boolean): string {
 
 export function PracticeScreen({
   questions,
+  initialIndex = 0,
   progress,
   settings,
   onAnswer,
   onComplete,
-  onHome,
+  onPause,
 }: PracticeScreenProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [answers, setAnswers] = useState<(number | null)[]>(() =>
     new Array(questions.length).fill(null)
   );
@@ -82,7 +84,7 @@ export function PracticeScreen({
       {/* Top bar */}
       <div className="flex items-center justify-between px-4 pt-4 pb-3 border-b border-gray-100 dark:border-gray-700">
         <button
-          onClick={onHome}
+          onClick={() => onPause(currentIndex)}
           className="text-sm text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 font-medium"
         >
           ← Home

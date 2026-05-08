@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
-import type { Question } from './data/questions';
-import { type Progress, loadProgress, updateQuestion, resetProgress, exportProgress } from './lib/progress';
+import { questions as allQuestions, type Question, type Topic } from './data/questions';
+import { type Progress, loadProgress, updateQuestion, resetProgress, exportProgress, saveSession, loadSession, clearSession } from './lib/progress';
 import { buildQueue, buildMockExam } from './lib/queue';
 import { HomeScreen } from './components/HomeScreen';
 import { PracticeScreen } from './components/PracticeScreen';
@@ -46,6 +46,7 @@ function saveSettings(s: AppSettings): void {
 export default function App() {
   const [screen, setScreen] = useState<Screen>('home');
   const [sessionQuestions, setSessionQuestions] = useState<Question[] | null>(null);
+  const [sessionInitialIndex, setSessionInitialIndex] = useState(0);
   const [sessionResult, setSessionResult] = useState<SessionResult | null>(null);
   const [settings, setSettings] = useState<AppSettings>(loadSettings);
   const [progress, setProgress] = useState<Progress>(loadProgress);
@@ -63,8 +64,19 @@ export default function App() {
 
   function handlePracticeComplete(answers: (number | null)[]) {
     if (!sessionQuestions) return;
-    setSessionResult({ questions: sessionQuestions, answers, isMock: false });
+    clearSession();
+    setSessionResult({
+      questions: sessionQuestions.slice(sessionInitialIndex),
+      answers: answers.slice(sessionInitialIndex),
+      isMock: false,
+    });
     setScreen('results');
+  }
+
+  function handlePracticePause(currentIndex: number) {
+    if (!sessionQuestions) return;
+    saveSession(sessionQuestions.map(q => q.id), currentIndex);
+    setScreen('home');
   }
 
   function handleMockComplete(answers: (number | null)[]) {
@@ -78,8 +90,23 @@ export default function App() {
     setScreen('results');
   }
 
-  function startPractice() {
-    setSessionQuestions(buildQueue());
+  function startPractice(topic: Topic | 'all' = 'all') {
+    const qs = buildQueue(topic);
+    setSessionQuestions(qs);
+    setSessionInitialIndex(0);
+    saveSession(qs.map(q => q.id), 0);
+    setScreen('practice');
+  }
+
+  function resumePractice() {
+    const session = loadSession();
+    if (!session) { startPractice(); return; }
+    const questionMap = new Map(allQuestions.map(q => [q.id, q]));
+    const qs = session.queueIds
+      .map(id => questionMap.get(id))
+      .filter((q): q is Question => q !== undefined);
+    setSessionQuestions(qs);
+    setSessionInitialIndex(session.index);
     setScreen('practice');
   }
 
@@ -124,26 +151,32 @@ export default function App() {
   }
 
   switch (screen) {
-    case 'home':
+    case 'home': {
+      const session = loadSession();
+      const savedSession = session ? { index: session.index, total: session.queueIds.length } : null;
       return (
         <HomeScreen
           progress={progress}
-          onPractice={startPractice}
+          savedSession={savedSession}
+          onPractice={savedSession ? resumePractice : () => startPractice('all')}
+          onPracticeByTopic={startPractice}
           onMockExam={startMock}
           onBrowse={() => setScreen('browse')}
           onSettings={() => setScreen('settings')}
         />
       );
+    }
 
     case 'practice':
       return sessionQuestions ? (
         <PracticeScreen
           questions={sessionQuestions}
+          initialIndex={sessionInitialIndex}
           progress={progress}
           settings={settings}
           onAnswer={handleAnswer}
           onComplete={handlePracticeComplete}
-          onHome={() => setScreen('home')}
+          onPause={handlePracticePause}
         />
       ) : null;
 
@@ -160,7 +193,7 @@ export default function App() {
       return sessionResult ? (
         <ResultsScreen
           result={sessionResult}
-          onPracticeAgain={startPractice}
+          onPracticeAgain={() => startPractice('all')}
           onHome={() => setScreen('home')}
         />
       ) : null;
