@@ -1,0 +1,426 @@
+You are helping populate a German citizenship test (Einbürgerungstest) study app.
+
+For each question below I have provided:
+  - The question ID
+  - The German question text
+  - The correct answer (in German)
+
+Your task: for EVERY question, write exactly 2–3 concise sentences in English that help a learner remember the correct answer. Focus on historical background, the legal basis, or a specific memorable fact. Be accurate and specific.
+
+Output ONLY a TypeScript object literal in this exact format — no explanation, no markdown fences, just the raw TypeScript:
+
+export const contexts: Record<number, string> = {
+  1: "...",
+  2: "...",
+};
+
+Questions:
+
+
+ID 209
+Question: Welches war das Wappen der Deutschen Demokratischen Republik?
+Correct answer: Bild 1
+
+ID 210
+Question: Was ereignete sich am 17. Juni 1953 in der DDR?
+Correct answer: landesweite Streiks und ein Volksaufstand
+
+ID 211
+Question: Welcher Politiker steht für die \"Ostverträge\"?
+Correct answer: Willy Brandt
+
+ID 212
+Question: Wie heißt Deutschland mit vollem Namen?
+Correct answer: Bundesrepublik Deutschland
+
+ID 213
+Question: Wie viele Einwohner hat Deutschland?
+Correct answer: 84 Millionen
+
+ID 214
+Question: Welche Farben hat die deutsche Flagge?
+Correct answer: schwarz-rot-gold
+
+ID 215
+Question: Wer wird als \"Kanzler der Deutschen Einheit\" bezeichnet?
+Correct answer: Helmut Kohl
+
+ID 216
+Question: Welches Symbol ist im Plenarsaal des Deutschen Bundestages zu sehen?
+Correct answer: der Bundesadler
+
+ID 217
+Question: In welchem Zeitraum gab es die Deutsche Demokratische Republik (DDR)?
+Correct answer: 1949 bis 1990
+
+ID 218
+Question: Wie viele Bundesländer kamen bei der Wiedervereinigung 1990 zur Bundesrepublik Deutschland hinzu?
+Correct answer: 5
+
+ID 219
+Question: Die Bundesrepublik Deutschland hat die Grenzen von heute seit …
+Correct answer: 1990
+
+ID 220
+Question: Der 27. Januar ist in Deutschland ein offizieller Gedenktag. Woran erinnert dieser Tag?
+Correct answer: an die Opfer des Nationalsozialismus (Tag der Befreiung des Vernichtungslagers Auschwitz)
+
+ID 221
+Question: Deutschland ist Mitglied des Schengener Abkommens. Was bedeutet das?
+Correct answer: Deutsche können in viele Länder Europas ohne Passkontrolle reisen.
+
+ID 222
+Question: Welches Land ist ein Nachbarland von Deutschland?
+Correct answer: Schweiz
+
+ID 223
+Question: Welches Land ist ein Nachbarland von Deutschland?
+Correct answer: Polen
+
+ID 224
+Question: Was bedeutet die Abkürzung EU?
+Correct answer: Europäische Union
+
+ID 225
+Question: In welchem anderen Land gibt es eine große deutschsprachige Bevölkerung?
+Correct answer: Österreich
+
+ID 226
+Question: Welche ist die Flagge der Europäischen Union?
+Correct answer: Bild 1
+
+ID 227
+Question: Welches Land ist ein Nachbarland von Deutschland?
+Correct answer: Dänemark
+
+ID 228
+Question: Wie wird der Beitritt der DDR zur Bundesrepublik Deutschland im Jahr 1990 allgemein genannt?
+Correct answer: Deutsche Wiedervereinigung
+
+ID 229
+Question: Welches Land ist ein Nachbarland von Deutschland?
+Correct answer: Luxemburg
+
+ID 230
+Question: Das Europäische Parlament wird regelmäßig gewählt, nämlich alle …
+Correct answer: 5 Jahre.
+
+ID 231
+Question: Was bedeutet der Begriff \"europäische Integration\"?
+Correct answer: Der Begriff meint den Zusammenschluss europäischer Staaten zur EU.
+
+ID 232
+Question: Wer wird bei der Europawahl gewählt?
+Correct answer: die Abgeordneten des Europäischen Parlaments
+
+ID 233
+Question: Welches Land ist ein Nachbarland von Deutschland?
+Correct answer: Tschechien
+
+ID 234
+Question: Wo ist ein Sitz des Europäischen Parlaments?
+Correct answer: Straßburg
+
+ID 235
+Question: Der damalige französische Staatspräsident François Mitterrand und der damalige deutsche Bundeskanzler Helmut Kohl gedenken in Verdun gemeinsam der Toten beider Weltkriege. Welches Ziel der Europäischen Union wird bei diesem Treffen deutlich?
+Correct answer: Frieden und Sicherheit in den Ländern der EU
+
+ID 236
+Question: Wie viele Mitgliedstaaten hat die EU heute?
+Correct answer: 27
+
+ID 237
+Question: 2007 wurde das 50-jährige Jubiläum der \"Römischen Verträge\" gefeiert. Was war der Inhalt der Verträge?
+Correct answer: Gründung der Europäischen Wirtschaftsgemeinschaft (EWG)
+
+ID 238
+Question: An welchen Orten arbeitet das Europäische Parlament?
+Correct answer: Straßburg, Luxemburg und Brüssel
+
+ID 239
+Question: Durch welche Verträge schloss sich die Bundesrepublik Deutschland mit anderen Staaten zur Europäischen Wirtschaftsgemeinschaft zusammen?
+Correct answer: durch die \"Römischen Verträge\"
+
+ID 240
+Question: Seit wann bezahlt man in Deutschland mit dem Euro in bar?
+Correct answer: 2002
+
+ID 241
+Question: Frau Seger bekommt ein Kind. Was muss sie tun, um Elterngeld zu erhalten?
+Correct answer: Sie muss einen Antrag bei der Elterngeldstelle stellen.
+
+ID 242
+Question: Wer entscheidet, ob ein Kind in Deutschland in den Kindergarten geht?
+Correct answer: die Eltern/die Erziehungsberechtigten
+
+ID 243
+Question: Maik und Sybille wollen mit Freunden an ihrem deutschen Wohnort eine Demonstration auf der Straße abhalten. Was müssen sie vorher tun?
+Correct answer: Sie müssen die Demonstration anmelden.
+
+ID 244
+Question: Welchen Schulabschluss braucht man normalerweise, um an einer Universität in Deutschland ein Studium zu beginnen?
+Correct answer: das Abitur
+
+ID 245
+Question: Wer darf in Deutschland nicht als Paar zusammenleben?
+Correct answer: Anne (13 Jahre) und Tim (25 Jahre)
+
+ID 246
+Question: Ab welchem Alter ist man in Deutschland volljährig?
+Correct answer: 18
+
+ID 247
+Question: Eine Frau ist schwanger. Sie ist kurz vor und nach der Geburt ihres Kindes vom Gesetz besonders beschützt. Wie heißt dieser Schutz?
+Correct answer: Mutterschutz
+
+ID 248
+Question: Die Erziehung der Kinder ist in Deutschland vor allem Aufgabe …
+Correct answer: der Eltern.
+
+ID 249
+Question: Wer ist in Deutschland hauptsächlich verantwortlich für die Kindererziehung?
+Correct answer: die Eltern
+
+ID 250
+Question: In Deutschland hat man die besten Chancen auf einen gut bezahlten Arbeitsplatz, wenn man …
+Correct answer: gut ausgebildet ist.
+
+ID 251
+Question: Wenn man in Deutschland ein Kind schlägt, …
+Correct answer: kann man dafür bestraft werden.
+
+ID 252
+Question: In Deutschland …
+Correct answer: darf man zur gleichen Zeit nur mit einer Partnerin/einem Partner verheiratet sein.
+
+ID 253
+Question: Wo müssen Sie sich anmelden, wenn Sie in Deutschland umziehen?
+Correct answer: beim Einwohnermeldeamt
+
+ID 254
+Question: In Deutschland dürfen Ehepaare sich scheiden lassen. Meistens müssen sie dazu das \"Trennungsjahr\" einhalten. Was bedeutet das?
+Correct answer: Die Ehegatten führen mindestens ein Jahr getrennt ihr eigenes Leben. Danach ist die Scheidung möglich.
+
+ID 255
+Question: Bei Erziehungsproblemen können Eltern in Deutschland Hilfe erhalten vom …
+Correct answer: Jugendamt.
+
+ID 256
+Question: Ein Ehepaar möchte in Deutschland ein Restaurant eröffnen. Was braucht es dazu unbedingt?
+Correct answer: eine Gaststättenerlaubnis von der zuständigen Behörde
+
+ID 257
+Question: Eine erwachsene Frau möchte in Deutschland das Abitur nachholen. Das kann sie an …
+Correct answer: einem Abendgymnasium.
+
+ID 258
+Question: Was darf das Jugendamt in Deutschland?
+Correct answer: Es kann ein Kind, das geschlagen wird oder hungern muss, aus der Familie nehmen.
+
+ID 259
+Question: Das Berufsinformationszentrum BIZ bei der Bundesagentur für Arbeit in Deutschland hilft bei der …
+Correct answer: Lehrstellensuche.
+
+ID 260
+Question: In Deutschland hat ein Kind in der Schule …
+Correct answer: Anwesenheitspflicht.
+
+ID 261
+Question: Ein Mann möchte mit 30 Jahren in Deutschland sein Abitur nachholen. Wo kann er das tun? An …
+Correct answer: einem Abendgymnasium.
+
+ID 262
+Question: Was bedeutet in Deutschland der Grundsatz der Gleichbehandlung?
+Correct answer: Niemand darf z.B. wegen einer Behinderung benachteiligt werden.
+
+ID 263
+Question: In Deutschland sind Jugendliche ab 14 Jahren strafmündig. Das bedeutet: Jugendliche, die 14 Jahre und älter sind und gegen Strafgesetze verstoßen, …
+Correct answer: werden bestraft.
+
+ID 264
+Question: Zu welchem Fest tragen Menschen in Deutschland bunte Kostüme und Masken?
+Correct answer: am Rosenmontag
+
+ID 265
+Question: Wohin muss man in Deutschland zuerst gehen, wenn man heiraten möchte?
+Correct answer: zum Standesamt
+
+ID 266
+Question: Wann beginnt die gesetzliche Nachtruhe in Deutschland?
+Correct answer: um 22 Uhr
+
+ID 267
+Question: Eine junge Frau in Deutschland, 22 Jahre alt, lebt mit ihrem Freund zusammen. Die Eltern der Frau finden das nicht gut, weil ihnen der Freund nicht gefällt. Was können die Eltern tun?
+Correct answer: Sie müssen die Entscheidung der volljährigen Tochter respektieren.
+
+ID 268
+Question: Eine junge Frau will den Führerschein machen. Sie hat Angst vor der Prüfung, weil ihre Muttersprache nicht Deutsch ist. Was ist richtig?
+Correct answer: Sie kann die Theorie-Prüfung vielleicht in ihrer Muttersprache machen. Es gibt mehr als zehn Sprachen zur Auswahl.
+
+ID 269
+Question: In Deutschland haben Kinder ab dem Alter von drei Jahren bis zur Ersteinschulung einen Anspruch auf …
+Correct answer: einen Kindergartenplatz.
+
+ID 270
+Question: Die Volkshochschule in Deutschland ist eine Einrichtung …
+Correct answer: zur Weiterbildung.
+
+ID 271
+Question: Was ist in Deutschland ein Brauch zu Weihnachten?
+Correct answer: einen Tannenbaum schmücken
+
+ID 272
+Question: Welche Lebensform ist in Deutschland nicht erlaubt?
+Correct answer: Ein Mann ist mit zwei Frauen zur selben Zeit verheiratet.
+
+ID 273
+Question: Bei Erziehungsproblemen gehen Sie in Deutschland …
+Correct answer: zum Jugendamt.
+
+ID 274
+Question: Sie haben in Deutschland absichtlich einen Brief geöffnet, der an eine andere Person adressiert ist. Was haben Sie nicht beachtet?
+Correct answer: das Briefgeheimnis
+
+ID 275
+Question: Was braucht man in Deutschland für eine Ehescheidung?
+Correct answer: die Unterstützung einer Anwältin/eines Anwalts
+
+ID 276
+Question: Was sollten Sie tun, wenn Sie von Ihrer Ansprechpartnerin/Ihrem Ansprechpartner in einer deutschen Behörde schlecht behandelt werden?
+Correct answer: Ich kann mich bei der Behördenleiterin/beim Behördenleiter beschweren.
+
+ID 277
+Question: Eine Frau, die ein zweijähriges Kind hat, bewirbt sich in Deutschland um eine Stelle. Was ist ein Beispiel für Diskriminierung? Sie bekommt die Stelle nur deshalb nicht, weil sie …
+Correct answer: Mutter ist.
+
+ID 278
+Question: Ein Mann im Rollstuhl hat sich auf eine Stelle als Buchhalter beworben. Was ist ein Beispiel für Diskriminierung? Er bekommt die Stelle nur deshalb nicht, weil er …
+Correct answer: im Rollstuhl sitzt.
+
+ID 279
+Question: In den meisten Mietshäusern in Deutschland gibt es eine \"Hausordnung\". Was steht in einer solchen \"Hausordnung\"? Sie nennt …
+Correct answer: Regeln, an die sich alle Bewohnerinnen und Bewohner halten müssen.
+
+ID 280
+Question: Wenn Sie sich in Deutschland gegen einen falschen Steuerbescheid wehren wollen, müssen Sie …
+Correct answer: Einspruch einlegen.
+
+ID 281
+Question: Zwei Freunde wollen in ein öffentliches Schwimmbad in Deutschland. Beide haben eine dunkle Hautfarbe und werden deshalb nicht hineingelassen. Welches Recht wird in dieser Situation verletzt? Das Recht auf …
+Correct answer: Gleichbehandlung
+
+ID 282
+Question: Welches Ehrenamt müssen deutsche Staatsbürgerinnen und Staatsbürger übernehmen, wenn sie dazu aufgefordert werden?
+Correct answer: Wahlhelferin/Wahlhelfer
+
+ID 283
+Question: Was tun Sie, wenn Sie eine falsche Rechnung von einer deutschen Behörde bekommen?
+Correct answer: Ich lege Widerspruch bei der Behörde ein.
+
+ID 284
+Question: Was man für die Arbeit können muss, ändert sich in Zukunft sehr schnell. Was kann man tun?
+Correct answer: Erwachsene müssen auch nach der Ausbildung immer weiter lernen.
+
+ID 285
+Question: Frau Frost arbeitet als fest angestellte Mitarbeiterin in einem Büro. Was muss sie nicht von ihrem Gehalt bezahlen?
+Correct answer: Umsatzsteuer
+
+ID 286
+Question: Welche Organisation in einer Firma hilft den Arbeitnehmerinnen und Arbeitnehmern bei Problemen mit der Arbeitgeberin/dem Arbeitgeber?
+Correct answer: der Betriebsrat
+
+ID 287
+Question: Sie möchten bei einer Firma in Deutschland ihr Arbeitsverhältnis beenden. Was müssen Sie beachten?
+Correct answer: die Kündigungsfrist
+
+ID 288
+Question: Woraus begründet sich Deutschlands besondere Verantwortung für Israel?
+Correct answer: aus den nationalsozialistischen Verbrechen gegen Juden
+
+ID 289
+Question: Ein Mann mit dunkler Hautfarbe bewirbt sich um eine Stelle als Kellner in einem Restaurant in Deutschland. Was ist ein Beispiel für Diskriminierung? Er bekommt die Stelle nur deshalb nicht, weil …
+Correct answer: er eine dunkle Haut hat.
+
+ID 290
+Question: Sie haben in Deutschland einen Fernseher gekauft. Zu Hause packen Sie den Fernseher aus, doch er funktioniert nicht. Der Fernseher ist kaputt. Was können Sie machen?
+Correct answer: den Fernseher reklamieren
+
+ID 291
+Question: Warum muss man in Deutschland bei der Steuererklärung aufschreiben, ob man zu einer Kirche gehört oder nicht? Weil …
+Correct answer: es eine Kirchensteuer gibt, die an die Einkommen- und Lohnsteuer geknüpft ist.
+
+ID 292
+Question: Die Menschen in Deutschland leben nach dem Grundsatz der religiösen Toleranz. Was bedeutet das?
+Correct answer: Jeder kann glauben, was er möchte.
+
+ID 293
+Question: Was ist in Deutschland ein Brauch zu Ostern?
+Correct answer: Eier bemalen
+
+ID 294
+Question: Pfingsten ist ein …
+Correct answer: christlicher Feiertag.
+
+ID 295
+Question: Welche Religion hat die europäische und deutsche Kultur geprägt?
+Correct answer: das Christentum
+
+ID 296
+Question: In Deutschland nennt man die letzten vier Wochen vor Weihnachten …
+Correct answer: die Adventszeit.
+
+ID 297
+Question: Aus welchem Land sind die meisten Migrantinnen und Migranten nach Deutschland gekommen?
+Correct answer: Türkei
+
+ID 298
+Question: In der DDR lebten vor allem Migrantinnen und Migranten aus …
+Correct answer: Vietnam, Polen, Mosambik.
+
+ID 299
+Question: Ausländische Arbeitnehmerinnen und Arbeitnehmer, die in den 50er und 60er Jahren von der Bundesrepublik Deutschland angeworben wurden, nannte man …
+Correct answer: Gastarbeiterinnen/Gastarbeiter.
+
+ID 300
+Question: Aus welchem Land kamen die ersten Gastarbeiterinnen und Gastarbeiter in die Bundesrepublik Deutschland?
+Correct answer: Ita lien
+
+ID 301
+Question: Welches Wappen gehört zum Bundesland Berlin?
+Correct answer: Bild 3
+
+ID 302
+Question: Welches ist ein Bezirk von Berlin?
+Correct answer: Altona
+
+ID 303
+Question: Für wie viele Jahre wird das Landesparlament in Berlin gewählt?
+Correct answer: 4
+
+ID 304
+Question: Ab welchem Alter darf man in Berlin bei Kommunalwahlen (Wahl der Bezirksverordnetenversammlung) wählen?
+Correct answer: 14
+
+ID 305
+Question: Welche Farben hat die Landesflagge von Berlin?
+Correct answer: weiß-rot
+
+ID 306
+Question: Wo können Sie sich in Berlin über politische Themen informieren?
+Correct answer: bei den Kirchen
+
+ID 307
+Question: Welches Bundesland ist ein Stadtstaat?
+Correct answer: Brandenburg
+
+ID 308
+Question: Welches Bundesland ist Berlin?
+Correct answer: Bild 4
+
+ID 309
+Question: Wie nennt man die Regierungschefin/den Regierungschef des Stadtstaates Berlin?
+Correct answer: Präsidentin/Präsident des Senates
+
+ID 310
+Question: Welche Senatorin/ welchen Senator hat Berlin nicht?
+Correct answer: Innensenatorin/Innensenator

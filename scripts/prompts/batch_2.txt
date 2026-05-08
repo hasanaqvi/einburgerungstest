@@ -1,0 +1,434 @@
+You are helping populate a German citizenship test (Einbürgerungstest) study app.
+
+For each question below I have provided:
+  - The question ID
+  - The German question text
+  - The correct answer (in German)
+
+Your task: for EVERY question, write exactly 2–3 concise sentences in English that help a learner remember the correct answer. Focus on historical background, the legal basis, or a specific memorable fact. Be accurate and specific.
+
+Output ONLY a TypeScript object literal in this exact format — no explanation, no markdown fences, just the raw TypeScript:
+
+export const contexts: Record<number, string> = {
+  1: "...",
+  2: "...",
+};
+
+Questions:
+
+
+ID 105
+Question: Was ist eine Aufgabe von Wahlhelferinnen/Wahlhelfern in Deutschland?
+Correct answer: Sie zählen die Stimmen nach dem Ende der Wahl.
+
+ID 106
+Question: In Deutschland helfen ehrenamtliche Wahlhelferinnen und Wahlhelfer bei den Wahlen. Was ist eine Aufgabe von Wahlhelferinnen/Wahlhelfern?
+Correct answer: Sie zählen die Stimmen nach dem Ende der Wahl.
+
+ID 107
+Question: Für wie viele Jahre wird der Bundestag in Deutschland gewählt?
+Correct answer: 4 Jahre
+
+ID 108
+Question: Bei einer Bundestagswahl in Deutschland darf jede/jeder wählen, die/der …
+Correct answer: Bürgerin/Bürger der Bundesrepublik Deutschland ist und mindestens 18 Jahre alt ist.
+
+ID 109
+Question: Wie oft gibt es normalerweise Bundestagswahlen in Deutschland?
+Correct answer: alle vier Jahre
+
+ID 110
+Question: Für wie viele Jahre wird der Bundestag in Deutschland gewählt?
+Correct answer: 4 Jahre
+
+ID 111
+Question: Welche Handlungen mit Bezug auf den Staat Israel sind in Deutschland verboten?
+Correct answer: der öffentliche Aufruf zur Vernichtung Israels
+
+ID 112
+Question: Die Wahlen in Deutschland sind …
+Correct answer: geheim.
+
+ID 113
+Question: Wahlen in Deutschland gewinnt die Partei, die …
+Correct answer: die meisten Stimmen bekommt.
+
+ID 114
+Question: An demokratischen Wahlen in Deutschland teilzunehmen ist …
+Correct answer: ein Recht.
+
+ID 115
+Question: Was bedeutet \"aktives Wahlrecht\" in Deutschland?
+Correct answer: Man kann wählen.
+
+ID 116
+Question: Wenn Sie bei einer Bundestagswahl in Deutschland wählen dürfen, heißt das …
+Correct answer: aktives Wahlrecht.
+
+ID 117
+Question: Wie viel Prozent der Zweitstimmen müssen Parteien mindestens bekommen, um in den Deutschen Bundestag gewählt zu werden?
+Correct answer: 5%
+
+ID 118
+Question: Wer darf bei den rund 40 jüdischen Makkabi-Sportvereinen Mitglied werden?
+Correct answer: alle Menschen
+
+ID 119
+Question: Wahlen in Deutschland sind frei. Was bedeutet das?
+Correct answer: Jede Person kann ohne Zwang entscheiden, ob sie wählen möchte und wen sie wählen möchte.
+
+ID 120
+Question: Das Wahlsystem in Deutschland ist ein …
+Correct answer: Mehrheits- und Verhältniswahlrecht.
+
+ID 121
+Question: Eine Partei möchte in den Deutschen Bundestag. Sie muss aber einen Mindestanteil an Wählerstimmen haben. Das heißt …
+Correct answer: 5%-Hürde.
+
+ID 122
+Question: Welchem Grundsatz unterliegen Wahlen in Deutschland? Wahlen in Deutschland sind …
+Correct answer: frei, gleich, geheim.
+
+ID 123
+Question: Was ist in Deutschland die \"5%-Hürde\"?
+Correct answer: Mindestanteil an Wählerstimmen, um ins Parlament zu kommen
+
+ID 124
+Question: Die Bundestagswahl in Deutschland ist die Wahl …
+Correct answer: des Parlaments für Deutschland.
+
+ID 125
+Question: In einer Demokratie ist eine Funktion von regelmäßigen Wahlen, …
+Correct answer: nach dem Willen der Wählermehrheit den Wechsel der Regierung zu ermöglichen.
+
+ID 126
+Question: Was bekommen wahlberechtigte Bürgerinnen und Bürger in Deutschland vor einer Wahl?
+Correct answer: eine Wahlbenachrichtigung von der Gemeinde
+
+ID 127
+Question: Warum gibt es die 5%-Hürde im Wahlgesetz der Bundesrepublik Deutschland? Es gibt sie, weil …
+Correct answer: viele kleine Parteien die Regierungsbildung erschweren.
+
+ID 128
+Question: Parlamentsmitglieder, die von den Bürgerinnen und Bürgern gewählt werden, nennt man …
+Correct answer: Abgeordnete.
+
+ID 129
+Question: Vom Volk gewählt wird in Deutschland …
+Correct answer: der Bundestag.
+
+ID 130
+Question: Welcher Stimmzettel wäre bei einer Bundestagswahl gültig? In Anlehnung an Bundeswahlordnung (BWO), Anlage 26
+Correct answer: Bild 1
+
+ID 131
+Question: In Deutschland ist eine Bürgermeisterin/ein Bürgermeister …
+Correct answer: das Oberhaupt einer Gemeinde.
+
+ID 132
+Question: Viele Menschen in Deutschland arbeiten in ihrer Freizeit ehrenamtlich. Was bedeutet das?
+Correct answer: Sie arbeiten freiwillig und unbezahlt in Vereinen und Verbänden.
+
+ID 133
+Question: Was ist bei Bundestags- und Landtagswahlen in Deutschland erlaubt?
+Correct answer: Man kann durch Briefwahl seine Stimme abgeben.
+
+ID 134
+Question: Man will die Buslinie abschaffen, mit der Sie immer zur Arbeit fahren. Was können Sie machen, um die Buslinie zu erhalten?
+Correct answer: Ich beteilige mich an einer Bürgerinitiative für die Erhaltung der Buslinie oder gründe selber eine Initiative.
+
+ID 135
+Question: Wen vertreten die Gewerkschaften in Deutschland?
+Correct answer: Arbeitnehmerinnen und Arbeitnehmer
+
+ID 136
+Question: Sie gehen in Deutschland zum Arbeitsgericht bei …
+Correct answer: ungerechtfertigter Kündigung durch Ihre Chefin/Ihren Chef.
+
+ID 137
+Question: Welches Gericht ist in Deutschland bei Konflikten in der Arbeitswelt zuständig?
+Correct answer: das Arbeitsgericht
+
+ID 138
+Question: Was kann ich in Deutschland machen, wenn mir meine Arbeitgeberin/mein Arbeitgeber zu Unrecht gekündigt hat?
+Correct answer: Kündigungsschutzklage erheben
+
+ID 139
+Question: Wann kommt es in Deutschland zu einem Prozess vor Gericht? Wenn jemand …
+Correct answer: eine Straftat begangen hat und angeklagt wird.
+
+ID 140
+Question: Was macht eine Schöffin/ein Schöffe in Deutschland? Sie/Er …
+Correct answer: entscheidet mit Richterinnen/Richtern über Schuld und Strafe.
+
+ID 141
+Question: Wer berät in Deutschland Personen bei Rechtsfragen und vertritt sie vor Gericht?
+Correct answer: eine Rechtsanwältin/ein Rechtsanwalt
+
+ID 142
+Question: Was ist die Hauptaufgabe einer Richterin/eines Richters in Deutschland? Eine Richterin/ein Richter …
+Correct answer: arbeitet an einem Gericht und spricht Urteile.
+
+ID 143
+Question: Eine Richterin/ein Richter in Deutschland gehört zur …
+Correct answer: Judikative.
+
+ID 144
+Question: Eine Richterin/ein Richter gehört in Deutschland zur …
+Correct answer: rechtsprechenden Gewalt.
+
+ID 145
+Question: In Deutschland wird die Staatsgewalt geteilt. Für welche Staatsgewalt arbeitet eine Richterin/ein Richter? Für die …
+Correct answer: Judikative
+
+ID 146
+Question: Wie nennt man in Deutschland ein Verfahren vor einem Gericht?
+Correct answer: Prozess
+
+ID 147
+Question: Was ist die Arbeit einer Richterin/eines Richters in Deutschland?
+Correct answer: Recht sprechen
+
+ID 148
+Question: Was ist eine Aufgabe der Polizei in Deutschland?
+Correct answer: die Einhaltung von Gesetzen zu überwachen
+
+ID 149
+Question: Was ist ein Beispiel für antisemitisches Verhalten?
+Correct answer: den Holocaust leugnen
+
+ID 150
+Question: Eine Gerichtsschöffin/ein Gerichtsschöffe in Deutschland ist …
+Correct answer: eine ehrenamtliche Richterin/ein ehrenamtlicher Richter.
+
+ID 151
+Question: Wer baute die Mauer in Berlin?
+Correct answer: die DDR
+
+ID 152
+Question: Wann waren die Nationalsozialisten mit Adolf Hitler in Deutschland an der Macht?
+Correct answer: 1933 bis 1945
+
+ID 153
+Question: Was war am 8. Mai 1945?
+Correct answer: Ende des Zweiten Weltkriegs in Europa
+
+ID 154
+Question: Wann war der Zweite Weltkrieg zu Ende?
+Correct answer: 1945
+
+ID 155
+Question: Wann waren die Nationalsozialisten in Deutschland an der Macht?
+Correct answer: 1933 bis 1945
+
+ID 156
+Question: In welchem Jahr wurde Hitler Reichskanzler?
+Correct answer: 1933
+
+ID 157
+Question: Die Nationalsozialisten mit Adolf Hitler errichteten 1933 in Deutschland …
+Correct answer: eine Diktatur.
+
+ID 158
+Question: Das \"Dritte Reich\" war eine …
+Correct answer: Diktatur.
+
+ID 159
+Question: Was gab es in Deutschland nicht wä hrend der Zeit des Nationalsozialismus?
+Correct answer: freie Wahlen
+
+ID 160
+Question: Welcher Krieg dauerte von 1939 bis 1945?
+Correct answer: der Zweite Weltkrieg
+
+ID 161
+Question: Was kennzeichnete den NS-Staat? Eine Politik …
+Correct answer: des staatlichen Rassismus
+
+ID 162
+Question: Claus Schenk Graf von Stauffenberg wurde bekannt durch …
+Correct answer: das Attentat auf Hitler am 20. Juli 1944.
+
+ID 163
+Question: In welchem Jahr zerstörten die Nationalsozialisten Synagogen und jüdische Geschäfte in Deutschland?
+Correct answer: 1938
+
+ID 164
+Question: Was passierte am 9. November 1938 in Deutschland?
+Correct answer: Jüdische Geschäfte und Synagogen werden durch Nationalsozialisten und ihre Anhänger zerstört.
+
+ID 165
+Question: Wie hieß der erste Bundeskanzler der Bundesrepublik Deutschland?
+Correct answer: Konrad Adenauer
+
+ID 166
+Question: Bei welchen Demonstrationen in Deutschland riefen die Menschen \"Wir sind das Volk\"?
+Correct answer: bei den Montagsdemonstrationen 1989 in der DDR
+
+ID 167
+Question: Welche Länder wurden nach dem Zweiten Weltkrieg in Deutschland als \"Alliierte Besatzungsmächte\" bezeichnet?
+Correct answer: USA, Sowjetunion, Großbritannien, Frankreich
+
+ID 168
+Question: Welches Land war keine \"Alliierte Besatzungsmacht\" in Deutschland?
+Correct answer: Japan
+
+ID 169
+Question: Wann wurde die Bundesrepublik Deutschland gegründet?
+Correct answer: 1949
+
+ID 170
+Question: Was gab es während der Zeit des Nationalsozialismus in Deutschland?
+Correct answer: das Verbot von Parteien
+
+ID 171
+Question: Soziale Marktwirtschaft bedeutet, die Wirtschaft …
+Correct answer: richtet sich nach Angebot und Nachfrage, aber der Staat sorgt für einen sozialen Ausgleich.
+
+ID 172
+Question: In welcher Besatzungszone wurde die DDR gegründet? In der …
+Correct answer: sowjetischen Besatzungszone
+
+ID 173
+Question: Die Bundesrepublik Deutschland ist ein Gründungsmitglied …
+Correct answer: des Nordatlantikpakts (NATO).
+
+ID 174
+Question: Wann wurde die DDR gegründet?
+Correct answer: 1949
+
+ID 175
+Question: Wie viele Besatzungszonen gab es in Deutschland nach dem Zweiten Weltkrieg?
+Correct answer: 4
+
+ID 176
+Question: Wie waren die Besatzungszonen Deutschlands nach 1945 verteilt?
+Correct answer: 1 =Großbritannien, 2=Sowjetunion, 3=Frankreich, 4=USA
+
+ID 177
+Question: Welche deutsche Stadt wurde nach dem Zweiten Weltkrieg in vier Sektoren aufgeteilt?
+Correct answer: Berlin
+
+ID 178
+Question: Vom Juni 1948 bis zum Mai 1949 wurden die Bürgerinnen und Bürger von West-Berlin durch eine Luftbrücke versorgt. Welcher Umstand war dafür verantwortlich?
+Correct answer: Die Sowjetunion unterbrach den gesamten Verkehr auf dem Landwege.
+
+ID 179
+Question: Wie endete der Zweite Weltkrieg in Europa offiziell?
+Correct answer: durch die bedingungslose Kapitulation Deutschlands
+
+ID 180
+Question: Der erste Bundeskanzler der Bundesrepublik Deutschland war …
+Correct answer: Konrad Adenauer.
+
+ID 181
+Question: Was wollte Willy Brandt mit seinem Kniefall 1970 im ehemaligen jüdischen Ghetto in Warschau ausdrücken?
+Correct answer: Er bat Polen und die polnischen Juden um Vergebung.
+
+ID 182
+Question: Wie heißt das jüdische Gebetshaus?
+Correct answer: Synagoge
+
+ID 183
+Question: Wann war in der Bundesrepublik Deutschland das \"Wirtschaftswunder\"?
+Correct answer: 50er Jahre
+
+ID 184
+Question: 184. Auf welcher rechtlichen Grundlage wurde der Staat Israel gegründet?
+Correct answer: eine Resolution der Vereinten Nationen
+
+ID 185
+Question: Wofür stand der Ausdruck \"Eiserner Vorhang\"? Für die Abschottung …
+Correct answer: des Warschauer Pakts gegen den Westen
+
+ID 186
+Question: Im Jahr 1953 gab es in der DDR einen Aufstand, an den lange Zeit in der Bundesrepublik Deutschland ein Feiertag erinnerte. Wann war das?
+Correct answer: 17. Juni
+
+ID 187
+Question: Welcher deutsche Staat hatte eine schwarz-rot-goldene Flagge mit Hammer, Zirkel und Ährenkranz?
+Correct answer: DDR
+
+ID 188
+Question: In welchem Jahr wurde die Mauer in Berlin gebaut?
+Correct answer: 1961
+
+ID 189
+Question: Wann baute die DDR die Mauer in Berlin?
+Correct answer: 1961
+
+ID 190
+Question: Was bedeutet die Abkürzung DDR?
+Correct answer: Deutsche Demokratische Republik
+
+ID 191
+Question: Wann wurde die Mauer in Berlin für alle geöffnet?
+Correct answer: 1989
+
+ID 192
+Question: Welches heutige deutsche Bundesland gehörte früher zum Gebiet der DDR?
+Correct answer: Brandenburg
+
+ID 193
+Question: Von 1961 bis 1989 war Berlin …
+Correct answer: durch eine Mauer geteilt.
+
+ID 194
+Question: Am 3. Oktober feiert man in Deutschland den Tag der Deutschen …
+Correct answer: Einheit.
+
+ID 195
+Question: Welches heutige deutsche Bundesland gehörte früher zum Gebiet der DDR?
+Correct answer: Sachsen-Anhalt
+
+ID 196
+Question: Warum nennt man die Zeit im Herbst 1989 in der DDR \"Die Wende\"? In dieser Zeit veränderte sich die DDR politisch …
+Correct answer: von einer Diktatur zur Demokratie.
+
+ID 197
+Question: Welches heutige deutsche Bundesland gehörte früher zum Gebiet der DDR?
+Correct answer: Thüringen
+
+ID 198
+Question: Welches heutige deutsche Bundesland gehörte früher zum Gebiet der DDR?
+Correct answer: Sachsen
+
+ID 199
+Question: Mit der Abkürzung \"Stasi\" meinte man in der DDR …
+Correct answer: das Ministerium für Staatssicherheit.
+
+ID 200
+Question: Welches heutige deutsche Bundesland gehörte früher zum Gebiet der DDR?
+Correct answer: Mecklenburg-Vorpommern
+
+ID 201
+Question: Welche der folgenden Auflistungen enthält nur Bundesländer, die zum Gebiet der früheren DDR gehörten?
+Correct answer: Mecklenburg-Vorpommern, Brandenburg, Sachsen, Sachsen-Anhalt, Thüringen
+
+ID 202
+Question: Zu wem gehörte die DDR im \"Kalten Krieg\"?
+Correct answer: zum Warschauer Pakt
+
+ID 203
+Question: Wie hieß das Wirtschaftssystem der DDR?
+Correct answer: Planwirtschaft
+
+ID 204
+Question: Wie wurden die Bundesrepublik Deutschland und die DDR zu einem Staat?
+Correct answer: Die heutigen fünf östlichen Bundesländer sind der Bundesrepublik Deutschland beigetreten.
+
+ID 205
+Question: Mit dem Beitritt der DDR zur Bundesrepublik Deutschland gehören die neuen Bundesländer nun auch …
+Correct answer: zur Europäischen Union.
+
+ID 206
+Question: 206. Woran erinnern die sogenannten „Stolpersteine“ in Deutschland?
+Correct answer: an die Opfer des Nationalsozialismus
+
+ID 207
+Question: In welchem Militärbündnis war die DDR Mitglied?
+Correct answer: im Warschauer Pakt
+
+ID 208
+Question: Was war die \"Stasi\"?
+Correct answer: der Geheimdienst der DDR

@@ -1,0 +1,434 @@
+You are helping populate a German citizenship test (Einbürgerungstest) study app.
+
+For each question below I have provided:
+  - The question ID
+  - The German question text
+  - The correct answer (in German)
+
+Your task: for EVERY question, write exactly 2–3 concise sentences in English that help a learner remember the correct answer. Focus on historical background, the legal basis, or a specific memorable fact. Be accurate and specific.
+
+Output ONLY a TypeScript object literal in this exact format — no explanation, no markdown fences, just the raw TypeScript:
+
+export const contexts: Record<number, string> = {
+  1: "...",
+  2: "...",
+};
+
+Questions:
+
+
+ID 1
+Question: In Deutschland dürfen Menschen offen etwas gegen die Regierung sagen, weil …
+Correct answer: hier Meinungsfreiheit gilt.
+
+ID 2
+Question: In Deutschland können Eltern bis zum 14. Lebensjahr ihres Kindes entscheiden, ob es in der Schule am …
+Correct answer: Religionsunterricht teilnimmt.
+
+ID 3
+Question: Deutschland ist ein Rechtsstaat. Was ist damit gemeint?
+Correct answer: Alle Einwohnerinnen/Einwohner und der Staat müssen sich an die Gesetze halten.
+
+ID 4
+Question: Welches Recht gehört zu den Grundrechten in Deutschland?
+Correct answer: Meinungsfreiheit
+
+ID 5
+Question: Wahlen in Deutschland sind frei. Was bedeutet das?
+Correct answer: Die Wählerin/der Wähler darf bei der Wahl weder beeinflusst noch zu einer bestimmten Stimmabgabe gezwungen werden und keine Nachteile durch die Wahl haben.
+
+ID 6
+Question: Wie heißt die deutsche Verfassung?
+Correct answer: Grundgesetz
+
+ID 7
+Question: Welches Recht gehört zu den Grundrechten, die nach der deutschen Verfassung garantiert werden? Das Recht auf …
+Correct answer: Glaubens- und Gewissensfreiheit
+
+ID 8
+Question: Was steht nicht i m Grundgesetz von Deutschland?
+Correct answer: Alle sollen gleich viel Geld haben.
+
+ID 9
+Question: Welches Grundrecht gilt in Deutschland nur für Ausländerinnen/Ausländer? Das Grundrecht auf …
+Correct answer: Asyl
+
+ID 10
+Question: Was ist mit dem deutschen Grundgesetz vereinbar?
+Correct answer: die Geldstrafe
+
+ID 11
+Question: Wie wird die Verfassung der Bundesrepublik Deutschland genannt?
+Correct answer: Grundgesetz
+
+ID 12
+Question: Eine Partei im Deutschen Bundestag will die Pressefreiheit abschaffen. Ist das möglich?
+Correct answer: Nein, denn die Pressefreiheit ist ein Grundrecht. Sie kann nicht abgeschafft werden.
+
+ID 13
+Question: Im Parlament steht der Begriff \"Opposition\" für …
+Correct answer: alle Abgeordneten, die nicht zu der Regierungspartei/den Regierungsparteien gehören.
+
+ID 14
+Question: Meinungsfreiheit in Deutschland heißt, dass ich …
+Correct answer: meine Meinung im Internet äußern kann.
+
+ID 15
+Question: Was verbietet das deutsche Grundgesetz?
+Correct answer: Zwangsarbeit
+
+ID 16
+Question: Wann ist die Meinungsfreiheit in Deutschland eingeschränkt?
+Correct answer: bei der öffentlichen Verbreitung falscher Behauptungen über einzelne Personen
+
+ID 17
+Question: Die deutschen Gesetze verbieten …
+Correct answer: Ungleichbehandlung der Bürgerinnen und Bürger durch den Staat.
+
+ID 18
+Question: Welches Grundrecht ist in Artikel 1 des Grundgesetzes der Bundesrepublik Deutschland garantiert?
+Correct answer: die Unantastbarkeit der Menschenwürde
+
+ID 19
+Question: Was versteht man unter dem Recht der \"Freizügigkeit\" in Deutschland?
+Correct answer: Man darf sich seinen Wohnort selbst aussuchen.
+
+ID 20
+Question: Eine Partei in Deutschland verfolgt das Ziel, eine Diktatur zu errichten. Sie ist dann …
+Correct answer: verfassungswidrig.
+
+ID 21
+Question: Welches ist das Wappen der Bundesrepublik Deutschland?
+Correct answer: Bild 1
+
+ID 22
+Question: Was für eine Staatsform hat Deutschland?
+Correct answer: Republik
+
+ID 23
+Question: In Deutschland sind die meisten Erwerbstätigen …
+Correct answer: bei einer Firma oder Behörde beschäftigt.
+
+ID 24
+Question: Wie viele Bundesländer hat die Bundesrepublik Deutschland?
+Correct answer: 16
+
+ID 25
+Question: Was ist kein Bundesland der Bundesrepublik Deutschland?
+Correct answer: Elsass-Lothringen
+
+ID 26
+Question: Deutschland ist …
+Correct answer: ein demokratischer und sozialer Bundesstaat.
+
+ID 27
+Question: Deutschland ist …
+Correct answer: ein Bundesstaat.
+
+ID 28
+Question: Wer wählt in Deutschland die Abgeordneten zum Bundestag?
+Correct answer: das wahlberechtigte Volk
+
+ID 29
+Question: Welches Tier ist das Wappentier der Bundesrepublik Deutschland?
+Correct answer: Adler
+
+ID 30
+Question: Was ist kein Merkmal unserer Demokratie?
+Correct answer: Pressezensur
+
+ID 31
+Question: Die Zusammenarbeit von Parteien zur Bildung einer Regierung nennt man in Deutschland …
+Correct answer: Koalition.
+
+ID 32
+Question: Was ist keine staatliche Gewalt in Deutschland?
+Correct answer: Presse
+
+ID 33
+Question: Welche Aussage ist richtig? In Deutschland …
+Correct answer: sind Staat und Religionsgemeinschaften voneinander getrennt.
+
+ID 34
+Question: Was ist Deutschland nicht?
+Correct answer: eine Monarchie
+
+ID 35
+Question: Womit finanziert der deutsche Staat die Sozialversicherung?
+Correct answer: Sozialabgaben
+
+ID 36
+Question: Welche Maßnahme schafft in Deutschland soziale Sicherheit?
+Correct answer: die Krankenversicherung
+
+ID 37
+Question: Wie werden die Regierungschefinnen/Regierungschefs der meisten Bundesländer in Deutschland genannt?
+Correct answer: Ministerpräsidentin/Ministerpräsident
+
+ID 38
+Question: Die Bundesrepublik Deutschland ist ein demokratischer und sozialer …
+Correct answer: Bundesstaat.
+
+ID 39
+Question: Was hat jedes deutsche Bundesland?
+Correct answer: eine eigene Regierung
+
+ID 40
+Question: Mit welchen Worten beginnt die deutsche Nationalhymne?
+Correct answer: Einigkeit und Recht und Freiheit …
+
+ID 41
+Question: Warum gibt es in einer Demokratie mehr als eine Partei?
+Correct answer: weil dadurch die unterschiedlichen Meinungen der Bürgerinnen und Bürger vertreten werden
+
+ID 42
+Question: Wer beschließt in Deutschland ein neues Gesetz?
+Correct answer: das Parlament
+
+ID 43
+Question: Wann kann in Deutschland eine Partei verboten werden?
+Correct answer: wenn sie gegen die Verfassung kämpft
+
+ID 44
+Question: Wen kann man als Bürgerin/ Bürger in Deutschland nicht direkt wählen?
+Correct answer: Die Bundespräsidentin/den Bundespräsidenten
+
+ID 45
+Question: Zu welcher Versicherung gehört die Pflegeversicherung?
+Correct answer: Sozialversicherung
+
+ID 46
+Question: Der deutsche Staat hat viele Aufgaben. Welche Aufgabe gehört dazu?
+Correct answer: Er baut Straßen und Schulen.
+
+ID 47
+Question: Der deutsche Staat hat viele Aufgaben. Welche Aufgabe gehört nicht dazu?
+Correct answer: Er bezahlt für alle Staatsangehörigen Urlaubsreisen.
+
+ID 48
+Question: Welches Organ gehört nicht z uden Verfassungsorganen Deutschlands?
+Correct answer: die Bürgerversammlung
+
+ID 49
+Question: Wer bestimmt in Deutschland die Schulpolitik?
+Correct answer: die Bundesländer
+
+ID 50
+Question: Die Wirtschaftsform in Deutschland nennt man …
+Correct answer: soziale Marktwirtschaft.
+
+ID 51
+Question: Zu einem demokratischen Rechtsstaat gehört es nicht, dass …
+Correct answer: Menschen von einer Privatpolizei ohne Grund verhaftet werden.
+
+ID 52
+Question: Was bedeutet \"Volkssouveränität\"? Alle Staatsgewalt geht vom ...
+Correct answer: Volke aus.
+
+ID 53
+Question: Was bedeutet \"Rechtsstaat\" in Deutschland?
+Correct answer: Der Staat muss die Gesetze einhalten.
+
+ID 54
+Question: Was ist keine staatliche Gewalt in Deutschland?
+Correct answer: Direktive
+
+ID 55
+Question: Was zeigt dieses Bild?
+Correct answer: den Bundestagssitz in Berlin
+
+ID 56
+Question: Welches Amt gehört in Deutschland zur Gemeindeverwaltung?
+Correct answer: Ordnungsamt
+
+ID 57
+Question: Wer wird meistens zur Präsidentin/zum Präsidenten des Deutschen Bundestages gewählt?
+Correct answer: eine Abgeordnete/ein Abgeordneter der stärksten Fraktion
+
+ID 58
+Question: Wer ernennt in Deutschland die Ministerinnen/die Minister der Bundesregierung?
+Correct answer: die Bundespräsidentin/der Bundespräsident
+
+ID 59
+Question: Vor wie vielen Jahren gab es erstmals eine jüdische Gemeinde auf dem Gebiet des heutigen Deutschlands?
+Correct answer: vor etwa 1150 Jahren
+
+ID 60
+Question: In Deutschland gehören der Bundestag und der Bundesrat zur …
+Correct answer: Legislative.
+
+ID 61
+Question: Was bedeutet \"Volkssouveränität\"?
+Correct answer: Die Staatsgewalt geht vom Volke aus.
+
+ID 62
+Question: Wenn das Parlament eines deutschen Bundeslandes gewählt wird, nennt man das …
+Correct answer: Landtagswahl
+
+ID 63
+Question: Was gehört in Deutschland nicht zur Exekutive?
+Correct answer: die Gerichte
+
+ID 64
+Question: Die Bundesrepublik Deutschland ist heute gegliedert in …
+Correct answer: Bund, Länder und Kommunen.
+
+ID 65
+Question: Es gehört nicht z uden Aufgaben des Deutschen Bundestages, …
+Correct answer: das Bundeskabinett zu bilden.
+
+ID 66
+Question: Welche Städte haben die größten jüdischen Gemeinden in Deutschland?
+Correct answer: Berlin und München
+
+ID 67
+Question: Was ist in Deutschland vor allem eine Aufgabe der Bundesländer?
+Correct answer: Schulpolitik
+
+ID 68
+Question: Warum kontrolliert der Staat in Deutschland das Schulwesen?
+Correct answer: weil es nach dem Grundgesetz seine Aufgabe ist
+
+ID 69
+Question: Die Bundesrepublik Deutschland hat einen dreistufigen Verwaltungsaufbau. Wie heißt die unterste politische Stufe?
+Correct answer: Gemeinden
+
+ID 70
+Question: Der deutsche Bundespräsident Gustav Heinemann gibt Helmut Schmidt 1974 die Ernennungsurkunde zum deutschen Bundeskanzler. Was gehört zu den Aufgaben der deutschen Bundespräsidentin/des deutschen Bundespräsidenten?
+Correct answer: Sie/Er schlägt die Kanzlerin/den Kanzler zur Wahl vor.
+
+ID 71
+Question: Wo hält sich die deutsche Bundeskanzlerin/der deutsche Bundeskanzler am häufigsten auf? Am häufigsten ist sie/er …
+Correct answer: i n Berlin, weil sich dort das Bundeskanzleramt und der Bundestag befinden.
+
+ID 72
+Question: Wie heißt die jetzige Bundeskanzlerin/der jetzige Bundeskanzler von Deutschland?
+Correct answer: Friedrich Merz
+
+ID 73
+Question: Die beiden größten Fraktionen im Deutschen Bundestag heißen zurzeit …
+Correct answer: CDU/CSU und AfD.
+
+ID 74
+Question: Wie heißt das Parlament für ganz Deutschland?
+Correct answer: Bundestag
+
+ID 75
+Question: Wie heißt Deutschlands heutiges Staatsoberhaupt?
+Correct answer: Frank-Walter Steinmeier
+
+ID 76
+Question: Was bedeutet die Abkürzung CDU in Deutschland?
+Correct answer: Christlich Demokratische Union
+
+ID 77
+Question: Was ist die Bundeswehr?
+Correct answer: die deutsche Armee
+
+ID 78
+Question: Was bedeutet die Abkürzung SPD?
+Correct answer: Sozialdemokratische Partei Deutschlands
+
+ID 79
+Question: Was bedeutet die Abkürzung FDP in Deutschland?
+Correct answer: Freie Demokratische Partei
+
+ID 80
+Question: Welches Gericht in Deutschland ist zuständig für die Auslegung des Grundgesetzes?
+Correct answer: Bundesverfassungsgericht
+
+ID 81
+Question: Wer wählt die Bundeskanzlerin/den Bundeskanzler in Deutschland?
+Correct answer: der Bundestag
+
+ID 82
+Question: Wer leitet das deutsche Bundeskabinett?
+Correct answer: die Bundeskanzlerin/der Bundeskanzler
+
+ID 83
+Question: Wer wählt die deutsche Bundeskanzlerin/den deutschen Bundeskanzler?
+Correct answer: der Bundestag
+
+ID 84
+Question: Welche Hauptaufgabe hat die deutsche Bundespräsidentin/der deutsche Bundespräsident? Sie/Er …
+Correct answer: repräsentiert das Land.
+
+ID 85
+Question: Wer bildet den deutschen Bundesrat?
+Correct answer: die Regierungsvertreter der Bundesländer
+
+ID 86
+Question: Wer wählt in Deutschland die Bundespräsidentin/den Bundespräsidenten?
+Correct answer: die Bundesversammlung
+
+ID 87
+Question: Wer ist das Staatsoberhaupt der Bundesrepublik Deutschland?
+Correct answer: die Bundespräsidentin/der Bundespräsident
+
+ID 88
+Question: Die parlamentarische Opposition im Deutschen Bundestag …
+Correct answer: kontrolliert die Regierung.
+
+ID 89
+Question: Wie nennt man in Deutschland die Vereinigung von Abgeordneten einer Partei im Parlament?
+Correct answer: Fraktion
+
+ID 90
+Question: Die deutschen Bundesländer wirken an der Gesetzgebung des Bundes mit durch …
+Correct answer: den Bundesrat.
+
+ID 91
+Question: In Deutschland kann ein Regierungswechsel in einem Bundesland Auswirkungen auf die Bundespolitik haben. Das Regieren wird …
+Correct answer: schwieriger, wenn dadurch die Mehrheit im Bundesrat verändert wird.
+
+ID 92
+Question: Was bedeutet die Abkürzung CSU in Deutschland?
+Correct answer: Christlich Soziale Union
+
+ID 93
+Question: Je mehr \"Zweitstimmen\" eine Partei bei einer Bundestagswahl bekommt, desto …
+Correct answer: mehr Sitze erhält die Partei im Parlament.
+
+ID 94
+Question: Ab welchem Alter darf man in Deutschland an der Wahl zum Deutschen Bundestag teilnehmen?
+Correct answer: 18
+
+ID 95
+Question: Was gilt für die meisten Kinder in Deutschland?
+Correct answer: Schulpflicht
+
+ID 96
+Question: Wie kann jemand, der den Holocaust leugnet, bestraft werden?
+Correct answer: mit Freiheitsstrafe bis zu fünf Jahren oder mit Geldstrafe
+
+ID 97
+Question: Was bezahlt man in Deutschland automatisch, wenn man fest angestellt ist?
+Correct answer: Sozialversicherung
+
+ID 98
+Question: Wenn Abgeordnete im Deutschen Bundestag ihre Fraktion wechseln, …
+Correct answer: kann die Regierung ihre Mehrheit verlieren.
+
+ID 99
+Question: Wer bezahlt in Deutschland die Sozialversicherungen?
+Correct answer: Arbeitgeberinnen/Arbeitgeber und Arbeitnehmerinnen/Arbeitnehmer
+
+ID 100
+Question: Was gehört nicht zu rgesetzlichen Sozialversicherung?
+Correct answer: die Lebensversicherung
+
+ID 101
+Question: Gewerkschaften sind Interessenverbände der …
+Correct answer: Arbeitnehmerinnen und Arbeitnehmer.
+
+ID 102
+Question: Womit kann man in der Bundesrepublik Deutschland geehrt werden, wenn man auf politischem, wirtschaftlichem, kulturellem, geistigem oder sozialem Gebiet eine besondere Leistung erbracht hat? Mit dem …
+Correct answer: Bundesverdienstkreuz
+
+ID 103
+Question: Was wird in Deutschland als \"Ampelkoalition\" bezeichnet? Die Zusammenarbeit …
+Correct answer: von SPD, FDP und Bündnis 90/Die Grünen in einer Regierung
+
+ID 104
+Question: Eine Frau in Deutschland verliert ihre Arbeit. Was darf nicht der Grund für diese Entlassung sein?
+Correct answer: Die Frau bekommt ein Kind und ihr Chef weiß das.
