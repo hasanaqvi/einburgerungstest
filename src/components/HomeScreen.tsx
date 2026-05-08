@@ -91,8 +91,10 @@ export function HomeScreen({ progress, savedSession, onPractice, onPracticeByTop
           <div className="space-y-2">
             {TOPICS.map(t => {
               const qs = questions.filter(q => q.topic === t);
-              const m = qs.filter(q => { const p = progress[q.id]; return p && isMastered(p); }).length;
-              const pct = qs.length > 0 ? Math.round((m / qs.length) * 100) : 0;
+              const mastered = qs.filter(q => { const p = progress[q.id]; return p && isMastered(p); }).length;
+              const seen = qs.filter(q => { const p = progress[q.id]; return p && p.attempts > 0; }).length;
+              const masteredPct = qs.length > 0 ? Math.round((mastered / qs.length) * 100) : 0;
+              const seenPct = qs.length > 0 ? Math.round((seen / qs.length) * 100) : 0;
               return (
                 <div key={String(t)} className="bg-gray-50 dark:bg-gray-800 rounded-xl p-3">
                   <div className="flex items-center justify-between mb-1.5">
@@ -100,12 +102,16 @@ export function HomeScreen({ progress, savedSession, onPractice, onPracticeByTop
                       <div className={`w-2 h-2 rounded-full ${topicColor(t)}`} />
                       <span className="text-sm text-gray-700 dark:text-gray-200">{topicLabel(t)}</span>
                     </div>
-                    <span className="text-xs text-gray-500 dark:text-gray-400">{m} / {qs.length}</span>
+                    <span className="text-xs text-gray-500 dark:text-gray-400">{seen} / {qs.length}</span>
                   </div>
-                  <div className="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-1.5 overflow-hidden">
+                  <div className="relative w-full bg-gray-200 dark:bg-gray-600 rounded-full h-1.5 overflow-hidden">
                     <div
-                      className="bg-green-500 h-1.5 rounded-full transition-all duration-500"
-                      style={{ width: `${pct}%` }}
+                      className="absolute left-0 top-0 h-1.5 bg-amber-400 transition-all duration-500"
+                      style={{ width: `${seenPct}%` }}
+                    />
+                    <div
+                      className="absolute left-0 top-0 h-1.5 bg-green-500 transition-all duration-500"
+                      style={{ width: `${masteredPct}%` }}
                     />
                   </div>
                 </div>
