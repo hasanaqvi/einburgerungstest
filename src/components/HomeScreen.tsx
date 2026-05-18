@@ -8,6 +8,7 @@ interface HomeScreenProps {
   onPracticeByTopic: (topic: Topic) => void;
   onMockExam: () => void;
   onBrowse: () => void;
+  onVocabulary: () => void;
   onSettings: () => void;
 }
 
@@ -33,7 +34,7 @@ function topicChipColor(t: Topic): string {
   return map[String(t)] ?? 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300';
 }
 
-export function HomeScreen({ progress, savedSession, onPractice, onPracticeByTopic, onMockExam, onBrowse, onSettings }: HomeScreenProps) {
+export function HomeScreen({ progress, savedSession, onPractice, onPracticeByTopic, onMockExam, onBrowse, onVocabulary, onSettings }: HomeScreenProps) {
   const total = questions.length;
 
   const mastered = questions.filter(q => {
@@ -162,12 +163,18 @@ export function HomeScreen({ progress, savedSession, onPractice, onPracticeByTop
               Browse all
             </button>
             <button
-              onClick={onSettings}
+              onClick={onVocabulary}
               className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-2xl py-3.5 font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
             >
-              Settings
+              Vocabulary
             </button>
           </div>
+          <button
+            onClick={onSettings}
+            className="w-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-2xl py-3.5 font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+          >
+            Settings
+          </button>
         </div>
 
         <p className="text-center text-xs text-gray-400 dark:text-gray-600 mt-8">{total} questions · national + Berlin</p>

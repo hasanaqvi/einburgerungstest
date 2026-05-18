@@ -8,6 +8,7 @@ import { MockExamScreen } from './components/MockExamScreen';
 import { ResultsScreen } from './components/ResultsScreen';
 import { BrowseScreen } from './components/BrowseScreen';
 import { SettingsScreen } from './components/SettingsScreen';
+import { VocabularyScreen } from './components/VocabularyScreen';
 
 export interface AppSettings {
   showQuestionTranslation: boolean;
@@ -21,7 +22,7 @@ export interface SessionResult {
   isMock: boolean;
 }
 
-type Screen = 'home' | 'practice' | 'mock' | 'results' | 'browse' | 'settings';
+type Screen = 'home' | 'practice' | 'mock' | 'results' | 'browse' | 'settings' | 'vocabulary';
 
 const SETTINGS_KEY = 'einbuergerungstest_settings';
 
@@ -162,6 +163,7 @@ export default function App() {
           onPracticeByTopic={startPractice}
           onMockExam={startMock}
           onBrowse={() => setScreen('browse')}
+          onVocabulary={() => setScreen('vocabulary')}
           onSettings={() => setScreen('settings')}
         />
       );
@@ -216,5 +218,8 @@ export default function App() {
           onHome={() => setScreen('home')}
         />
       );
+
+    case 'vocabulary':
+      return <VocabularyScreen onHome={() => setScreen('home')} />;
   }
 }

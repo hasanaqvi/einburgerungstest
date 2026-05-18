@@ -79,14 +79,16 @@ export function SettingsScreen({
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
-      <div className="max-w-2xl mx-auto px-4 pt-4 pb-8">
-        {/* Header */}
-        <div className="flex items-center gap-3 mb-6">
-          <button onClick={onHome} className="text-sm text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 font-medium">
-            ← Home
-          </button>
-          <h1 className="text-lg font-bold text-gray-900 dark:text-white">Settings</h1>
-        </div>
+      {/* Header */}
+      <div className="flex items-center justify-between px-4 pt-4 pb-3 border-b border-gray-100 dark:border-gray-700">
+        <button onClick={onHome} className="text-sm text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 font-medium">
+          ← Home
+        </button>
+        <span className="text-sm font-semibold text-gray-900 dark:text-white">Settings</span>
+        <div className="w-14" />
+      </div>
+
+      <div className="max-w-2xl mx-auto px-4 pt-5 pb-8">
 
         {/* Display section */}
         <div className="mb-6">
