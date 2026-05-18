@@ -6,8 +6,12 @@ A mobile-friendly German citizenship test practice app covering all 300 national
 
 - Smart practice queue using an SM-2-inspired confidence algorithm
 - Mock exam mode (33 questions, pass mark 17/33)
-- Progress tracking persisted to localStorage
+- Flexible practice sessions with topic filtering and resume
+- Context explanations shown after each answer across all 310 questions
+- Vocabulary flashcard screen — 178 key terms with 3D flip animation, example sentences, and learned-card tracking
+- Progress tracking persisted to localStorage (seen and mastered per topic)
 - Browse and search all 310 questions with mastery indicators
+- Dark mode
 - Export and import progress as JSON
 - Works offline — no backend, no external APIs
 
