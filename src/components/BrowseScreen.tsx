@@ -170,9 +170,7 @@ export function BrowseScreen({ progress, onHome }: BrowseScreenProps) {
                               <span className="text-green-600 dark:text-green-400 mr-1.5">✓</span>
                             )}
                             {opt.de}
-                            {i === q.ans && (
-                              <span className="text-xs text-green-600 dark:text-green-400 ml-1">— {opt.en}</span>
-                            )}
+                            <span className={`text-xs ml-1 ${i === q.ans ? 'text-green-600 dark:text-green-400' : 'text-gray-400 dark:text-gray-500'}`}>— {opt.en}</span>
                           </div>
                         ))}
                       </div>
