@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { questions, topicLabel } from '../data/questions';
+import { contexts } from '../data/contexts';
 import { type Progress, isMastered, type QuestionProgress } from '../lib/progress';
 
 interface BrowseScreenProps {
@@ -174,6 +175,11 @@ export function BrowseScreen({ progress, onHome }: BrowseScreenProps) {
                           </div>
                         ))}
                       </div>
+                      {contexts[q.id] && (
+                        <div className="mt-3 px-3 py-2.5 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-100 dark:border-blue-800">
+                          <p className="text-xs text-blue-800 dark:text-blue-200 leading-relaxed">{contexts[q.id]}</p>
+                        </div>
+                      )}
                       {p && p.attempts > 0 && (
                         <p className="text-xs text-gray-400 dark:text-gray-500 mt-3">
                           {p.attempts} attempt{p.attempts !== 1 ? 's' : ''} ·{' '}
