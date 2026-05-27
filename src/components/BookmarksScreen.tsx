@@ -28,9 +28,33 @@ function BookmarkFilledIcon() {
 
 export function BookmarksScreen({ bookmarks, progress, onToggleBookmark, onPracticeBookmarks, onHome }: BookmarksScreenProps) {
   const [search, setSearch] = useState('');
-  const [expandedId, setExpandedId] = useState<number | null>(null);
-  const [showQTranslation, setShowQTranslation] = useState(false);
-  const [showATranslation, setShowATranslation] = useState(false);
+  const [collapsedIds, setCollapsedIds] = useState<Set<number>>(new Set());
+  const [qTransOn, setQTransOn] = useState<Set<number>>(new Set());
+  const [aTransOn, setATransOn] = useState<Set<number>>(new Set());
+
+  function toggleCollapsed(id: number) {
+    setCollapsedIds(prev => {
+      const next = new Set(prev);
+      next.has(id) ? next.delete(id) : next.add(id);
+      return next;
+    });
+  }
+
+  function toggleQTrans(id: number) {
+    setQTransOn(prev => {
+      const next = new Set(prev);
+      next.has(id) ? next.delete(id) : next.add(id);
+      return next;
+    });
+  }
+
+  function toggleATrans(id: number) {
+    setATransOn(prev => {
+      const next = new Set(prev);
+      next.has(id) ? next.delete(id) : next.add(id);
+      return next;
+    });
+  }
 
   const bookmarkedQuestions = questions.filter(q => bookmarks.has(q.id));
 
@@ -81,30 +105,6 @@ export function BookmarksScreen({ bookmarks, progress, onToggleBookmark, onPract
           Practice {bookmarks.size} bookmarked question{bookmarks.size !== 1 ? 's' : ''}
         </button>
 
-        {/* Translation toggles */}
-        <div className="flex gap-2 mb-4">
-          <button
-            onClick={() => setShowQTranslation(v => !v)}
-            className={`flex-1 py-2 rounded-xl text-xs font-medium transition-colors border ${
-              showQTranslation
-                ? 'bg-blue-600 text-white border-blue-600'
-                : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:border-blue-400'
-            }`}
-          >
-            Question translation {showQTranslation ? 'on' : 'off'}
-          </button>
-          <button
-            onClick={() => setShowATranslation(v => !v)}
-            className={`flex-1 py-2 rounded-xl text-xs font-medium transition-colors border ${
-              showATranslation
-                ? 'bg-blue-600 text-white border-blue-600'
-                : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:border-blue-400'
-            }`}
-          >
-            Answer translation {showATranslation ? 'on' : 'off'}
-          </button>
-        </div>
-
         {/* Search */}
         <input
           type="search"
@@ -121,48 +121,91 @@ export function BookmarksScreen({ bookmarks, progress, onToggleBookmark, onPract
             {filtered.map(q => {
               const p = progress[q.id];
               const badge = confidenceBadge(p);
-              const expanded = expandedId === q.id;
+              const collapsed = collapsedIds.has(q.id);
+              const showQ = qTransOn.has(q.id);
+              const showA = aTransOn.has(q.id);
               return (
                 <div
                   key={q.id}
                   className="border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden"
                 >
-                  <button
-                    onClick={() => setExpandedId(expanded ? null : q.id)}
-                    className="w-full text-left px-4 py-3 flex items-start gap-3 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
-                  >
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="text-xs text-gray-400 dark:text-gray-500">#{q.id}</span>
-                        <span className="text-xs text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-gray-700 px-1.5 py-0.5 rounded-full">
-                          {topicLabel(q.topic)}
+                  {/* Card header */}
+                  <div className="px-4 pt-3 pb-2">
+                    <div className="flex items-start gap-3">
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="text-xs text-gray-400 dark:text-gray-500">#{q.id}</span>
+                          <span className="text-xs text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-gray-700 px-1.5 py-0.5 rounded-full">
+                            {topicLabel(q.topic)}
+                          </span>
+                          {q.berlin && (
+                            <span className="text-xs font-semibold text-blue-700 dark:text-blue-300 bg-blue-100 dark:bg-blue-900/40 px-1.5 py-0.5 rounded-full">
+                              Berlin
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-sm font-medium text-gray-800 dark:text-gray-100">{q.de}</p>
+                        {showQ && q.en && (
+                          <p className="text-xs text-gray-400 dark:text-gray-500 italic mt-1">{q.en}</p>
+                        )}
+                      </div>
+                      <div className="flex flex-col items-end gap-1.5 shrink-0">
+                        <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${badge.cls}`}>
+                          {badge.label}
                         </span>
-                        {q.berlin && (
-                          <span className="text-xs font-semibold text-blue-700 dark:text-blue-300 bg-blue-100 dark:bg-blue-900/40 px-1.5 py-0.5 rounded-full">
-                            Berlin
+                        {p && p.attempts > 0 && (
+                          <span className="text-xs text-gray-400 dark:text-gray-500">
+                            {Math.round(p.confidence * 100)}%
                           </span>
                         )}
                       </div>
-                      <p className="text-sm font-medium text-gray-800 dark:text-gray-100 line-clamp-2">{q.de}</p>
-                      {showQTranslation && q.en && (
-                        <p className="text-xs text-gray-400 dark:text-gray-500 italic mt-0.5">{q.en}</p>
-                      )}
                     </div>
-                    <div className="flex flex-col items-end gap-1.5 shrink-0">
-                      <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${badge.cls}`}>
-                        {badge.label}
-                      </span>
-                      {p && p.attempts > 0 && (
-                        <span className="text-xs text-gray-400 dark:text-gray-500">
-                          {Math.round(p.confidence * 100)}%
-                        </span>
-                      )}
-                    </div>
-                  </button>
 
-                  {expanded && (
+                    {/* Per-card controls */}
+                    <div className="flex items-center gap-2 mt-2">
+                      <button
+                        onClick={() => toggleQTrans(q.id)}
+                        className={`text-xs px-2.5 py-1 rounded-full border transition-colors ${
+                          showQ
+                            ? 'bg-blue-600 text-white border-blue-600'
+                            : 'text-gray-500 dark:text-gray-400 border-gray-200 dark:border-gray-600 hover:border-blue-400'
+                        }`}
+                      >
+                        Q EN
+                      </button>
+                      <button
+                        onClick={() => toggleATrans(q.id)}
+                        className={`text-xs px-2.5 py-1 rounded-full border transition-colors ${
+                          showA
+                            ? 'bg-blue-600 text-white border-blue-600'
+                            : 'text-gray-500 dark:text-gray-400 border-gray-200 dark:border-gray-600 hover:border-blue-400'
+                        }`}
+                      >
+                        A EN
+                      </button>
+                      <button
+                        onClick={() => onToggleBookmark(q.id)}
+                        className="ml-auto text-amber-500 hover:text-amber-600 dark:text-amber-400 dark:hover:text-amber-300 transition-colors"
+                        aria-label="Remove bookmark"
+                      >
+                        <BookmarkFilledIcon />
+                      </button>
+                      <button
+                        onClick={() => toggleCollapsed(q.id)}
+                        className="text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 transition-colors"
+                        aria-label={collapsed ? 'Expand' : 'Collapse'}
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`w-4 h-4 transition-transform ${collapsed ? '' : 'rotate-180'}`}>
+                          <path d="M6 9l6 6 6-6" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Expanded content */}
+                  {!collapsed && (
                     <div className="px-4 pb-4 border-t border-gray-100 dark:border-gray-700 pt-3">
-                      <div className="space-y-1.5 mb-3">
+                      <div className="space-y-1.5">
                         {q.opts.map((opt, i) => (
                           <div
                             key={i}
@@ -176,7 +219,7 @@ export function BookmarksScreen({ bookmarks, progress, onToggleBookmark, onPract
                               <span className="text-green-600 dark:text-green-400 mr-1.5">✓</span>
                             )}
                             {opt.de}
-                            {showATranslation && opt.en && (
+                            {showA && opt.en && (
                               <span className={`block text-xs mt-0.5 ${i === q.ans ? 'text-green-600 dark:text-green-400' : 'text-gray-400 dark:text-gray-500'}`}>
                                 {opt.en}
                               </span>
@@ -197,14 +240,6 @@ export function BookmarksScreen({ bookmarks, progress, onToggleBookmark, onPract
                           {p.attempts} attempt{p.attempts !== 1 ? 's' : ''} · {p.correct} correct · confidence {Math.round(p.confidence * 100)}%
                         </p>
                       )}
-
-                      <button
-                        onClick={() => onToggleBookmark(q.id)}
-                        className="mt-3 flex items-center gap-1.5 text-xs font-medium text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 transition-colors"
-                      >
-                        <BookmarkFilledIcon />
-                        Remove bookmark
-                      </button>
                     </div>
                   )}
                 </div>
