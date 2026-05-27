@@ -3,12 +3,14 @@ import { type Progress, isMastered } from '../lib/progress';
 
 interface HomeScreenProps {
   progress: Progress;
+  bookmarkCount: number;
   savedSession: { index: number; total: number } | null;
   onPractice: () => void;
   onPracticeByTopic: (topic: Topic) => void;
   onMockExam: () => void;
   onBrowse: () => void;
   onVocabulary: () => void;
+  onBookmarks: () => void;
   onSettings: () => void;
 }
 
@@ -34,7 +36,7 @@ function topicChipColor(t: Topic): string {
   return map[String(t)] ?? 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300';
 }
 
-export function HomeScreen({ progress, savedSession, onPractice, onPracticeByTopic, onMockExam, onBrowse, onVocabulary, onSettings }: HomeScreenProps) {
+export function HomeScreen({ progress, bookmarkCount, savedSession, onPractice, onPracticeByTopic, onMockExam, onBrowse, onVocabulary, onBookmarks, onSettings }: HomeScreenProps) {
   const total = questions.length;
 
   const mastered = questions.filter(q => {
@@ -169,6 +171,15 @@ export function HomeScreen({ progress, savedSession, onPractice, onPracticeByTop
               Vocabulary
             </button>
           </div>
+          <button
+            onClick={onBookmarks}
+            className="w-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-2xl py-3.5 font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors flex items-center justify-center gap-2"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill={bookmarkCount > 0 ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`w-4 h-4 ${bookmarkCount > 0 ? 'text-amber-500 dark:text-amber-400' : ''}`}>
+              <path d="M5 3a2 2 0 00-2 2v16l7-3.5L17 21V5a2 2 0 00-2-2H5z" />
+            </svg>
+            Bookmarks{bookmarkCount > 0 ? ` (${bookmarkCount})` : ''}
+          </button>
           <button
             onClick={onSettings}
             className="w-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-2xl py-3.5 font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"

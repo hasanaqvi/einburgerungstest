@@ -7,9 +7,11 @@ interface PracticeScreenProps {
   questions: Question[];
   initialIndex?: number;
   progress: Progress;
+  bookmarks: Set<number>;
   onAnswer: (questionId: number, isCorrect: boolean) => void;
   onComplete: (answers: (number | null)[]) => void;
   onPause: (currentIndex: number) => void;
+  onToggleBookmark: (id: number) => void;
 }
 
 function confidenceDot(confidence: number, hasSeen: boolean): string {
@@ -23,9 +25,11 @@ export function PracticeScreen({
   questions,
   initialIndex = 0,
   progress,
+  bookmarks,
   onAnswer,
   onComplete,
   onPause,
+  onToggleBookmark,
 }: PracticeScreenProps) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [answers, setAnswers] = useState<(number | null)[]>(() =>
@@ -35,6 +39,7 @@ export function PracticeScreen({
   const [showATranslation, setShowATranslation] = useState(false);
 
   const question = questions[currentIndex];
+  const isBookmarked = bookmarks.has(question.id);
   const selected = answers[currentIndex];
   const answered = selected !== null;
   const isCorrect = answered && selected === question.ans;
@@ -92,11 +97,26 @@ export function PracticeScreen({
         <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">
           {currentIndex + 1} / {questions.length}
         </span>
-        <div className="w-20 h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-          <div
-            className="h-1.5 bg-blue-500 rounded-full transition-all duration-300"
-            style={{ width: `${progressPct}%` }}
-          />
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => onToggleBookmark(question.id)}
+            className={`transition-colors ${
+              isBookmarked
+                ? 'text-amber-500 hover:text-amber-600 dark:text-amber-400 dark:hover:text-amber-300'
+                : 'text-gray-300 hover:text-amber-400 dark:text-gray-600 dark:hover:text-amber-400'
+            }`}
+            aria-label={isBookmarked ? 'Remove bookmark' : 'Bookmark this question'}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill={isBookmarked ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+              <path d="M5 3a2 2 0 00-2 2v16l7-3.5L17 21V5a2 2 0 00-2-2H5z" />
+            </svg>
+          </button>
+          <div className="w-20 h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+            <div
+              className="h-1.5 bg-blue-500 rounded-full transition-all duration-300"
+              style={{ width: `${progressPct}%` }}
+            />
+          </div>
         </div>
       </div>
 

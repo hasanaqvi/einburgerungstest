@@ -1,12 +1,14 @@
 import { useState, useCallback, useEffect } from 'react';
 import { questions as allQuestions, type Question, type Topic } from './data/questions';
 import { type Progress, loadProgress, updateQuestion, resetProgress, exportProgress, saveSession, loadSession, clearSession } from './lib/progress';
+import { loadBookmarks, toggleBookmark } from './lib/bookmarks';
 import { buildQueue, buildMockExam } from './lib/queue';
 import { HomeScreen } from './components/HomeScreen';
 import { PracticeScreen } from './components/PracticeScreen';
 import { MockExamScreen } from './components/MockExamScreen';
 import { ResultsScreen } from './components/ResultsScreen';
 import { BrowseScreen } from './components/BrowseScreen';
+import { BookmarksScreen } from './components/BookmarksScreen';
 import { SettingsScreen } from './components/SettingsScreen';
 import { VocabularyScreen } from './components/VocabularyScreen';
 
@@ -22,7 +24,7 @@ export interface SessionResult {
   isMock: boolean;
 }
 
-type Screen = 'home' | 'practice' | 'mock' | 'results' | 'browse' | 'settings' | 'vocabulary';
+type Screen = 'home' | 'practice' | 'mock' | 'results' | 'browse' | 'bookmarks' | 'settings' | 'vocabulary';
 
 const SETTINGS_KEY = 'einbuergerungstest_settings';
 
@@ -51,8 +53,13 @@ export default function App() {
   const [sessionResult, setSessionResult] = useState<SessionResult | null>(null);
   const [settings, setSettings] = useState<AppSettings>(loadSettings);
   const [progress, setProgress] = useState<Progress>(loadProgress);
+  const [bookmarks, setBookmarks] = useState<Set<number>>(loadBookmarks);
 
   const refreshProgress = useCallback(() => setProgress(loadProgress()), []);
+
+  function handleToggleBookmark(id: number) {
+    setBookmarks(toggleBookmark(id));
+  }
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', settings.darkMode);
@@ -116,6 +123,20 @@ export default function App() {
     setScreen('mock');
   }
 
+  function startPracticeBookmarks() {
+    const ids = [...bookmarks];
+    if (ids.length === 0) return;
+    const questionMap = new Map(allQuestions.map(q => [q.id, q]));
+    const qs = ids
+      .map(id => questionMap.get(id))
+      .filter((q): q is Question => q !== undefined)
+      .sort(() => Math.random() - 0.5);
+    setSessionQuestions(qs);
+    setSessionInitialIndex(0);
+    saveSession(qs.map(q => q.id), 0);
+    setScreen('practice');
+  }
+
   function handleUpdateSettings(updates: Partial<AppSettings>) {
     const next = { ...settings, ...updates };
     setSettings(next);
@@ -158,12 +179,14 @@ export default function App() {
       return (
         <HomeScreen
           progress={progress}
+          bookmarkCount={bookmarks.size}
           savedSession={savedSession}
           onPractice={savedSession ? resumePractice : () => startPractice('all')}
           onPracticeByTopic={startPractice}
           onMockExam={startMock}
           onBrowse={() => setScreen('browse')}
           onVocabulary={() => setScreen('vocabulary')}
+          onBookmarks={() => setScreen('bookmarks')}
           onSettings={() => setScreen('settings')}
         />
       );
@@ -175,9 +198,11 @@ export default function App() {
           questions={sessionQuestions}
           initialIndex={sessionInitialIndex}
           progress={progress}
+          bookmarks={bookmarks}
           onAnswer={handleAnswer}
           onComplete={handlePracticeComplete}
           onPause={handlePracticePause}
+          onToggleBookmark={handleToggleBookmark}
         />
       ) : null;
 
@@ -203,6 +228,19 @@ export default function App() {
       return (
         <BrowseScreen
           progress={progress}
+          bookmarks={bookmarks}
+          onToggleBookmark={handleToggleBookmark}
+          onHome={() => setScreen('home')}
+        />
+      );
+
+    case 'bookmarks':
+      return (
+        <BookmarksScreen
+          bookmarks={bookmarks}
+          progress={progress}
+          onToggleBookmark={handleToggleBookmark}
+          onPracticeBookmarks={startPracticeBookmarks}
           onHome={() => setScreen('home')}
         />
       );

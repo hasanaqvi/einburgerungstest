@@ -5,6 +5,8 @@ import { type Progress, isMastered, type QuestionProgress } from '../lib/progres
 
 interface BrowseScreenProps {
   progress: Progress;
+  bookmarks: Set<number>;
+  onToggleBookmark: (id: number) => void;
   onHome: () => void;
 }
 
@@ -33,7 +35,7 @@ const MASTERY_FILTERS: { value: MasteryFilter; label: string }[] = [
   { value: 'mastered', label: 'Mastered' },
 ];
 
-export function BrowseScreen({ progress, onHome }: BrowseScreenProps) {
+export function BrowseScreen({ progress, bookmarks, onToggleBookmark, onHome }: BrowseScreenProps) {
   const [search, setSearch] = useState('');
   const [topicFilter, setTopicFilter] = useState<TopicFilter>('all');
   const [masteryFilter, setMasteryFilter] = useState<MasteryFilter>('all');
@@ -121,6 +123,7 @@ export function BrowseScreen({ progress, onHome }: BrowseScreenProps) {
               const p = progress[q.id];
               const badge = confidenceBadge(p);
               const expanded = expandedId === q.id;
+              const isBookmarked = bookmarks.has(q.id);
               return (
                 <div
                   key={q.id}
@@ -143,9 +146,24 @@ export function BrowseScreen({ progress, onHome }: BrowseScreenProps) {
                       <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">{topicLabel(q.topic)}</p>
                     </div>
                     <div className="flex flex-col items-end gap-1.5 shrink-0">
-                      <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${badge.cls}`}>
-                        {badge.label}
-                      </span>
+                      <div className="flex items-center gap-1.5">
+                        <button
+                          onClick={e => { e.stopPropagation(); onToggleBookmark(q.id); }}
+                          className={`transition-colors ${
+                            isBookmarked
+                              ? 'text-amber-500 hover:text-amber-600 dark:text-amber-400 dark:hover:text-amber-300'
+                              : 'text-gray-300 hover:text-amber-400 dark:text-gray-600 dark:hover:text-amber-400'
+                          }`}
+                          aria-label={isBookmarked ? 'Remove bookmark' : 'Bookmark this question'}
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill={isBookmarked ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                            <path d="M5 3a2 2 0 00-2 2v16l7-3.5L17 21V5a2 2 0 00-2-2H5z" />
+                          </svg>
+                        </button>
+                        <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${badge.cls}`}>
+                          {badge.label}
+                        </span>
+                      </div>
                       {p && p.attempts > 0 && (
                         <span className="text-xs text-gray-400 dark:text-gray-500">
                           {Math.round(p.confidence * 100)}%
